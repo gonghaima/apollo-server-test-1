@@ -1,4 +1,5 @@
 const { ApolloServer } = require("apollo-server");
+const isEmail = require("isemail");
 const typeDefs = require("./schema");
 const { createStore } = require("./utils");
 
