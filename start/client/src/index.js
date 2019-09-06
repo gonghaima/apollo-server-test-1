@@ -3,6 +3,7 @@ import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { resolvers, typeDefs } from "./resolvers";
 import React from "react";
 import ReactDOM from "react-dom";
 import Pages from "./pages";
@@ -16,7 +17,9 @@ const client = new ApolloClient({
     headers: {
       authorization: localStorage.getItem("token")
     }
-  })
+  }),
+  typeDefs,
+  resolvers
 });
 
 cache.writeData({
