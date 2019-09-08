@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import { GET_CART_ITEMS } from "./pages/cart";
 
 /******************************************************************************************************************************************************
  * To add a virtual field, first extend the type of the data you're adding the field to in your client schema. Here, we're extending the Launch type: *
