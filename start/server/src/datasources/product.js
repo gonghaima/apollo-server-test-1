@@ -7,10 +7,10 @@ class ProductAPI extends RESTDataSource {
   }
 
   async getAllProducts() {
-    // const response = await Promise.resolve(data);
+    const response = await Promise.resolve(data);
     // return Array.isArray(response) ? response : [];
-    console.log(data);
-    return data;
+    console.log(response);
+    return response;
   }
 }
 
