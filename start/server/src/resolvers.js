@@ -23,6 +23,8 @@ module.exports = {
     },
     launch: (_, { id }, { dataSources }) =>
       dataSources.launchAPI.getLaunchById({ launchId: id }),
+    products: (_, { id }, { dataSources }) =>
+      dataSources.productAPI.getAllProducts(),
     me: (_, __, { dataSources }) => dataSources.userAPI.findOrCreateUser()
   },
   Mutation: {

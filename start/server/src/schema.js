@@ -13,6 +13,7 @@ const typeDefs = gql`
       after: String
     ): LaunchConnection!
     launch(id: ID!): Launch
+    products: [Product]
     me: User
   }
 
@@ -61,6 +62,13 @@ const typeDefs = gql`
     id: ID!
     email: String!
     trips: [Launch]!
+  }
+
+  type Product {
+    id: ID!
+    product_name: String!
+    description: String!
+    product_image: String!
   }
 
   type Mission {

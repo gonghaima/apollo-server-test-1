@@ -7,6 +7,7 @@ const resolvers = require("./resolvers");
 
 const LaunchAPI = require("./datasources/launch");
 const UserAPI = require("./datasources/user");
+const ProductAPI = require("./datasources/product");
 
 const store = createStore();
 
@@ -27,7 +28,8 @@ const server = new ApolloServer({
   resolvers,
   dataSources: () => ({
     launchAPI: new LaunchAPI(),
-    userAPI: new UserAPI({ store })
+    userAPI: new UserAPI({ store }),
+    productAPI: new ProductAPI()
   })
 });
 
