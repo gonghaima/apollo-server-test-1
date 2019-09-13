@@ -21,3 +21,13 @@ CREATE TABLE products (
     description TEXT NOT NULL
 )
 ```
+
+```sql
+INSERT INTO products (
+    price,
+    product_name,
+    description,
+    product_image
+)
+VALUES(8768, 'Amitriptyline Hydrochloride','synergize efficient metrics', 'http://dummyimage.com/307x328.bmp/ff4444/ffffff' );
+```
