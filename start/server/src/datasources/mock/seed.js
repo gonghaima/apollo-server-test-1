@@ -38,12 +38,9 @@ module.exports.init = function populateData() {
   debugger;
   try {
     data.map(({ price, product_name, product_image, description }) => {
-      const pc = +price.slice(1) * 100;
-      const nm = product_name.slice();
-      const im = product_image.slice();
       store.products
         .create({
-          price: pc,
+          price,
           productName: product_name,
           productImage: product_image,
           description: description,

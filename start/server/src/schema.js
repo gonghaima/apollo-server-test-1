@@ -69,6 +69,7 @@ const typeDefs = gql`
     productName: String!
     description: String!
     productImage: String!
+    price: String!
   }
 
   type Mission {
