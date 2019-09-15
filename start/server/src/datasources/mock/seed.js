@@ -2,7 +2,6 @@ const SQL = require("sequelize");
 const data = require("./productsData");
 
 function createStore() {
-  debugger;
   const Op = SQL.Op;
   const operatorsAliases = {
     $in: Op.in
@@ -35,7 +34,6 @@ function createStore() {
 const store = createStore();
 
 module.exports.init = function populateData() {
-  debugger;
   try {
     data.map(({ price, product_name, product_image, description }) => {
       store.products
