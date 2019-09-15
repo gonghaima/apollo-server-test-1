@@ -7,11 +7,15 @@ class ProductAPI extends RESTDataSource {
     this.store = store;
   }
 
+  // async getAllProducts() {
+  //   const response = await Promise.resolve(data);
+  //   // return Array.isArray(response) ? response : [];
+  //   console.log(response);
+  //   return response;
+  // }
+
   async getAllProducts() {
-    const response = await Promise.resolve(data);
-    // return Array.isArray(response) ? response : [];
-    console.log(response);
-    return response;
+    return await this.store.products.findAll();
   }
 
   // async findOrProducts({ price, product_name, product_image, description }) {

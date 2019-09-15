@@ -45,3 +45,26 @@ node -e 'require("./seed").init()'
 ```sh
 node --inspect -e 'require("./seed").init()'
 ```
+
+## query
+
+```javascript
+query GetLaunches {
+  launches(pageSize: 3) {
+    launches {
+      id
+      mission {
+        name
+      }
+    }
+  }
+}
+```
+
+```javascript
+query foo {
+  products {
+    productName
+  }
+}
+```

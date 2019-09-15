@@ -66,9 +66,9 @@ const typeDefs = gql`
 
   type Product {
     id: ID!
-    product_name: String!
+    productName: String!
     description: String!
-    product_image: String!
+    productImage: String!
   }
 
   type Mission {

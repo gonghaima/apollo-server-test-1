@@ -72,9 +72,11 @@ module.exports.createStore = () => {
       autoIncrement: true
     },
     price: SQL.INTEGER,
-    product_name: SQL.STRING,
-    product_image: SQL.STRING,
-    description: SQL.STRING
+    productName: SQL.STRING,
+    productImage: SQL.STRING,
+    description: SQL.STRING,
+    createdAt: SQL.DATE,
+    updatedAt: SQL.DATE
   });
 
   return { users, trips, products };
