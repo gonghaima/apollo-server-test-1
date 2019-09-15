@@ -2,8 +2,9 @@ const { RESTDataSource } = require("apollo-datasource-rest");
 const data = require("./mock/productsData");
 
 class ProductAPI extends RESTDataSource {
-  constructor() {
+  constructor({ store }) {
     super();
+    this.store = store;
   }
 
   async getAllProducts() {
@@ -13,14 +14,12 @@ class ProductAPI extends RESTDataSource {
     return response;
   }
 
-  async findOrCreateUser({ email: emailArg } = {}) {
-    const email =
-      this.context && this.context.user ? this.context.user.email : emailArg;
-    if (!email || !isEmail.validate(email)) return null;
-
-    const users = await this.store.users.findOrCreate({ where: { email } });
-    return users && users[0] ? users[0] : null;
-  }
+  // async findOrProducts({ price, product_name, product_image, description }) {
+  //   const products = await this.store.products.findOrCreate({
+  //     where: { price, product_name, product_image, description }
+  //   });
+  //   return products && products[0] ? products[0] : null;
+  // }
 }
 
 module.exports = ProductAPI;

@@ -71,8 +71,6 @@ module.exports.createStore = () => {
       primaryKey: true,
       autoIncrement: true
     },
-    createdAt: SQL.DATE,
-    updatedAt: SQL.DATE,
     price: SQL.INTEGER,
     product_name: SQL.STRING,
     product_image: SQL.STRING,

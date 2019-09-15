@@ -29,7 +29,7 @@ const server = new ApolloServer({
   dataSources: () => ({
     launchAPI: new LaunchAPI(),
     userAPI: new UserAPI({ store }),
-    productAPI: new ProductAPI()
+    productAPI: new ProductAPI({ store })
   })
 });
 
