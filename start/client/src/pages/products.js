@@ -53,6 +53,8 @@ export default function Products() {
   }
   return (
     <Fragment>
+      <h1>All Products</h1>
+      <p>{data.products && data.products.length} products</p>
       {data.products &&
         data.products.map((product, index) => (
           <StyledParagraph
