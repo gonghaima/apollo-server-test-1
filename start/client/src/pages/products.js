@@ -55,6 +55,13 @@ export default function Products() {
     <Fragment>
       <h1>All Products</h1>
       <p>{data.products && data.products.length} products</p>
+      <select>
+        <option value="4">4 per page</option>
+        <option value="8">8 per page</option>
+        <option value="10">10 per page</option>
+        <option value="20">20 per page</option>
+        <option value="40">40 per page</option>
+      </select>
       {data.products &&
         data.products.map((product, index) => (
           <StyledParagraph
