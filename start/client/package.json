@@ -16,6 +16,7 @@
     "react": "^16.9.0-alpha.0",
     "react-dom": "^16.9.0-alpha.0",
     "react-emotion": "^9.2.12",
+    "react-paginate": "^6.3.0",
     "react-scripts": "3.0.1"
   },
   "scripts": {

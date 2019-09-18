@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import ReactPaginate from "react-paginate";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
@@ -63,7 +64,7 @@ export default function Products() {
         <option value="40">40 per page</option>
       </select>
       {data.products &&
-        data.products.map((product, index) => (
+        data.products.slice(910).map((product, index) => (
           <StyledParagraph
             key={index}
             style={{
@@ -73,6 +74,21 @@ export default function Products() {
             {product.price}
           </StyledParagraph>
         ))}
+
+      <ReactPaginate
+        previousLabel={"< Previous page"}
+        nextLabel={"Next page >"}
+        breakLabel="..."
+        breakClassName="break-me"
+        marginPagesDisplayed={9}
+        pageCount={8}
+        pageRangeDisplayed={25}
+        forcePage={9}
+        onPageChange={e => {}}
+        containerClassName="pagination"
+        subContainerClassName="pages pagination"
+        activeClassName="active"
+      />
     </Fragment>
   );
 }
