@@ -64,7 +64,7 @@ export default function Products() {
         <option value="40">40 per page</option>
       </select>
       {data.products &&
-        data.products.slice(910).map((product, index) => (
+        data.products.slice(200, 205).map((product, index) => (
           <StyledParagraph
             key={index}
             style={{
