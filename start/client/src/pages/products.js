@@ -39,6 +39,7 @@ export const GET_PRODUCTS = gql`
       productImage
       description
     }
+    itemsPerPage @client
   }
 `;
 
@@ -48,13 +49,13 @@ export default function Products() {
     return <Loading />;
   }
   if (error) {
-    debugger;
     console.log(error);
     return <p>ERROR</p>;
   }
   return (
     <Fragment>
       <h1>All Products</h1>
+      {data.itemsPerPage && data.itemsPerPage}
       <p>{data.products && data.products.length} products</p>
       <select>
         <option value="4">4 per page</option>

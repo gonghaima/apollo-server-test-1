@@ -12,6 +12,13 @@ import Login from "./pages/login";
 import { resolvers, typeDefs } from "./resolvers";
 import injectStyles from "./styles";
 
+/**********************************************************************
+ * configration values, it need to be moved to some common area later *
+ **********************************************************************/
+const config = {
+  itemsPerPage: [4, 8, 10, 20, 40]
+};
+
 // Set up our apollo-client to point at the server we created
 // this can be local or a remote endpoint
 const cache = new InMemoryCache();
@@ -32,7 +39,8 @@ const client = new ApolloClient({
 cache.writeData({
   data: {
     isLoggedIn: !!localStorage.getItem("token"),
-    cartItems: []
+    cartItems: [],
+    itemsPerPage: config.itemsPerPage
   }
 });
 
