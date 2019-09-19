@@ -16,7 +16,8 @@ import injectStyles from "./styles";
  * configration values, it need to be moved to some common area later *
  **********************************************************************/
 const config = {
-  itemsPerPage: [4, 8, 10, 20, 40],
+  numToDisplay: [4, 8, 10, 20, 40],
+  itemsPerPage: 40,
   currentPage: 0
 };
 
@@ -41,8 +42,9 @@ cache.writeData({
   data: {
     isLoggedIn: !!localStorage.getItem("token"),
     cartItems: [],
-    itemsPerPage: config.itemsPerPage,
-    currentPage: config.currentPage
+    numToDisplay: config.numToDisplay,
+    currentPage: config.currentPage,
+    itemsPerPage: config.itemsPerPage
   }
 });
 

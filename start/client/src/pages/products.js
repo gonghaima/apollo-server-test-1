@@ -39,11 +39,13 @@ export const GET_PRODUCTS = gql`
       productImage
       description
     }
-    itemsPerPage @client
+    numToDisplay @client
     currentPage @client
+    itemsPerPage @client
   }
 `;
 
+const pageTotal = (total, limit) => Math.ceil(total / limit);
 export default function Products() {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
   if (loading) {
@@ -58,8 +60,8 @@ export default function Products() {
       <h1>All Products</h1>
       <p>{data.products && data.products.length} products</p>
       <select>
-        {data.itemsPerPage &&
-          data.itemsPerPage.map(num => (
+        {data.numToDisplay &&
+          data.numToDisplay.map(num => (
             <option value={num}>{num}perPage</option>
           ))}
       </select>
@@ -80,8 +82,10 @@ export default function Products() {
         nextLabel={"Next page >"}
         breakLabel="..."
         breakClassName="break-me"
-        marginPagesDisplayed={9}
-        pageCount={8}
+        marginPagesDisplayed={5}
+        pageCount={
+          data.products && pageTotal(data.products.length, data.itemsPerPage)
+        }
         pageRangeDisplayed={25}
         forcePage={3}
         onPageChange={e => {}}
