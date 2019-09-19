@@ -16,7 +16,8 @@ import injectStyles from "./styles";
  * configration values, it need to be moved to some common area later *
  **********************************************************************/
 const config = {
-  itemsPerPage: [4, 8, 10, 20, 40]
+  itemsPerPage: [4, 8, 10, 20, 40],
+  currentPage: 0
 };
 
 // Set up our apollo-client to point at the server we created
@@ -40,7 +41,8 @@ cache.writeData({
   data: {
     isLoggedIn: !!localStorage.getItem("token"),
     cartItems: [],
-    itemsPerPage: config.itemsPerPage
+    itemsPerPage: config.itemsPerPage,
+    currentPage: config.currentPage
   }
 });
 

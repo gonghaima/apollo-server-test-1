@@ -40,6 +40,7 @@ export const GET_PRODUCTS = gql`
       description
     }
     itemsPerPage @client
+    currentPage @client
   }
 `;
 
@@ -82,7 +83,7 @@ export default function Products() {
         marginPagesDisplayed={9}
         pageCount={8}
         pageRangeDisplayed={25}
-        forcePage={9}
+        forcePage={3}
         onPageChange={e => {}}
         containerClassName="pagination"
         subContainerClassName="pages pagination"
