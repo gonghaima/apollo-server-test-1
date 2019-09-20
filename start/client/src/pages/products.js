@@ -67,7 +67,11 @@ export default function Products() {
     <Fragment>
       <h1>All Products</h1>
       <p>{data.products && data.products.length} products</p>
-      <select>
+      <select
+        onChange={e =>
+          updateNumPerPage({ variables: { newNum: e.target.value } })
+        }
+      >
         {data.numToDisplay &&
           data.numToDisplay.map(num => (
             <option value={num}>{num}perPage</option>
