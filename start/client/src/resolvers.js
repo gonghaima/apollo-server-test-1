@@ -15,6 +15,7 @@ export const typeDefs = gql`
 
   extend type Mutation {
     addOrRemoveFromCart(id: ID!): [Launch]
+    updateItemsPerPage(num: Int!): Boolean!
   }
 `;
 
@@ -38,6 +39,14 @@ export const resolvers = {
       };
       cache.writeQuery({ query: GET_CART_ITEMS, data });
       return data.cartItems;
+    },
+    updateItemsPerPage: (_, { num }, { cache }) => {
+      cache.writeData({
+        data: {
+          itemsPerPage: num
+        }
+      });
+      return null;
     }
   }
 };

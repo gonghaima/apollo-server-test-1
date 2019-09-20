@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ReactPaginate from "react-paginate";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
 import { Loading } from "../components";
@@ -46,8 +46,16 @@ export const GET_PRODUCTS = gql`
 `;
 
 const pageTotal = (total, limit) => Math.ceil(total / limit);
+
+const SET_NUM_PER_PAGE = gql`
+  mutation updateItemsPerPage($newNum: Int!) {
+    updateItemsPerPage(num: $newNum) @client
+  }
+`;
+
 export default function Products() {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
+  const [updateNumPerPage] = useMutation(SET_NUM_PER_PAGE);
   if (loading) {
     return <Loading />;
   }
@@ -88,7 +96,7 @@ export default function Products() {
         }
         pageRangeDisplayed={25}
         forcePage={3}
-        onPageChange={e => {}}
+        onPageChange={e => updateNumPerPage({ variables: { newNum: 200 } })}
         containerClassName="pagination"
         subContainerClassName="pages pagination"
         activeClassName="active"
