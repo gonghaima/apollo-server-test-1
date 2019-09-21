@@ -17,7 +17,7 @@ import injectStyles from "./styles";
  **********************************************************************/
 const config = {
   numToDisplay: [4, 8, 10, 20, 40],
-  itemsPerPage: 40,
+  itemsPerPage: 4,
   currentPage: 0
 };
 

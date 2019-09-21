@@ -59,6 +59,18 @@ const SET_CUR_PAGE = gql`
   }
 `;
 
+// const getParams = (curPage, iPerPage) => {
+//   const offset = iPerPage * (curPage + 1);
+//   const limit = offset + iPerPage;
+//   return [offset, limit];
+// };
+
+const getOffSet = (curPage, iPerPage) => {
+  console.log('calc');
+  
+  return iPerPage * curPage;
+};
+
 export default function Products() {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
   const [updateNumPerPage] = useMutation(SET_NUM_PER_PAGE);
@@ -84,17 +96,29 @@ export default function Products() {
             <option value={num}>{num}perPage</option>
           ))}
       </select>
+      <p>currentPage {data.currentPage}</p>
+      <p>itemsPerPage {data.itemsPerPage}</p>
+      <p>offset {getOffSet(data.currentPage, data.itemsPerPage)}</p>
+      <p>
+        limit{" "}
+        {getOffSet(data.currentPage, data.itemsPerPage) + data.itemsPerPage}
+      </p>
       {data.products &&
-        data.products.slice(200, 205).map((product, index) => (
-          <StyledParagraph
-            key={index}
-            style={{
-              backgroundImage: getBackgroundImage(product)
-            }}
-          >
-            {product.price}
-          </StyledParagraph>
-        ))}
+        data.products
+          .slice(
+            getOffSet(data.currentPage, data.itemsPerPage),
+            getOffSet(data.currentPage, data.itemsPerPage) + data.itemsPerPage
+          )
+          .map((product, index) => (
+            <StyledParagraph
+              key={index}
+              style={{
+                backgroundImage: getBackgroundImage(product)
+              }}
+            >
+              {product.price}
+            </StyledParagraph>
+          ))}
 
       <ReactPaginate
         previousLabel={"< Previous page"}
