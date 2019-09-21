@@ -53,9 +53,16 @@ const SET_NUM_PER_PAGE = gql`
   }
 `;
 
+const SET_CUR_PAGE = gql`
+  mutation updateCurrentPage($newPageNum: Int!) {
+    updateCurrentPage(pagenum: $newPageNum) @client
+  }
+`;
+
 export default function Products() {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
   const [updateNumPerPage] = useMutation(SET_NUM_PER_PAGE);
+  const [updateCurrentPage] = useMutation(SET_CUR_PAGE);
   if (loading) {
     return <Loading />;
   }
@@ -100,7 +107,9 @@ export default function Products() {
         }
         pageRangeDisplayed={25}
         forcePage={3}
-        onPageChange={e => updateNumPerPage({ variables: { newNum: 200 } })}
+        onPageChange={e =>
+          updateCurrentPage({ variables: { newPageNum: e.selected } })
+        }
         containerClassName="pagination"
         subContainerClassName="pages pagination"
         activeClassName="active"

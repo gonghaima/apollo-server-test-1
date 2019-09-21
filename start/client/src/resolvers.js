@@ -16,6 +16,7 @@ export const typeDefs = gql`
   extend type Mutation {
     addOrRemoveFromCart(id: ID!): [Launch]
     updateItemsPerPage(num: Int!): Boolean!
+    updateCurrentPage(pagenum: Int!): Boolean!
   }
 `;
 
@@ -44,6 +45,15 @@ export const resolvers = {
       cache.writeData({
         data: {
           itemsPerPage: num
+        }
+      });
+      return null;
+    },
+    updateCurrentPage: (_, { pagenum }, { cache }) => {
+      debugger;
+      cache.writeData({
+        data: {
+          currentPage: pagenum
         }
       });
       return null;
