@@ -50,7 +50,6 @@ export const resolvers = {
       return null;
     },
     updateCurrentPage: (_, { pagenum }, { cache }) => {
-      debugger;
       cache.writeData({
         data: {
           currentPage: pagenum
