@@ -87,7 +87,9 @@ export default function Products() {
       >
         {data.numToDisplay &&
           data.numToDisplay.map(num => (
-            <option value={num}>{num}perPage</option>
+            <option value={num} key={`option${num}`}>
+              {num}perPage
+            </option>
           ))}
       </select>
       <p>currentPage {data.currentPage}</p>
