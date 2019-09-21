@@ -59,16 +59,10 @@ const SET_CUR_PAGE = gql`
   }
 `;
 
-// const getParams = (curPage, iPerPage) => {
-//   const offset = iPerPage * (curPage + 1);
-//   const limit = offset + iPerPage;
-//   return [offset, limit];
-// };
-
-const getOffSet = (curPage, iPerPage) => {
-  console.log('calc');
-  
-  return iPerPage * curPage;
+const getParams = (curPage, iPerPage) => {
+  const offset = +iPerPage * +curPage;
+  const limit = offset + +iPerPage;
+  return [offset, limit];
 };
 
 export default function Products() {
@@ -98,17 +92,12 @@ export default function Products() {
       </select>
       <p>currentPage {data.currentPage}</p>
       <p>itemsPerPage {data.itemsPerPage}</p>
-      <p>offset {getOffSet(data.currentPage, data.itemsPerPage)}</p>
-      <p>
-        limit{" "}
-        {getOffSet(data.currentPage, data.itemsPerPage) + data.itemsPerPage}
-      </p>
+
+      <p>params: {getParams(data.currentPage, data.itemsPerPage)}</p>
+
       {data.products &&
         data.products
-          .slice(
-            getOffSet(data.currentPage, data.itemsPerPage),
-            getOffSet(data.currentPage, data.itemsPerPage) + data.itemsPerPage
-          )
+          .slice(...getParams(data.currentPage, data.itemsPerPage))
           .map((product, index) => (
             <StyledParagraph
               key={index}
