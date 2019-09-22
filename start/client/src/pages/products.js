@@ -92,10 +92,6 @@ export default function Products() {
             </option>
           ))}
       </select>
-      <p>currentPage {data.currentPage}</p>
-      <p>itemsPerPage {data.itemsPerPage}</p>
-
-      <p>params: {getParams(data.currentPage, data.itemsPerPage)}</p>
 
       {data.products &&
         data.products
