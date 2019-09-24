@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import styled from 'react-emotion';
+import React, { Fragment } from "react";
+import styled from "react-emotion";
 
-import { unit, colors } from '../styles';
+import { unit, colors } from "../styles";
 
 export default function PageContainer(props) {
   return (
@@ -16,19 +16,19 @@ export default function PageContainer(props) {
  * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
  */
 
-const Bar = styled('div')({
+const Bar = styled("div")({
   flexShrink: 0,
   height: 12,
-  backgroundColor: colors.primary,
+  backgroundColor: colors.primary
 });
 
-const Container = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
+const Container = styled("div")({
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
   flexGrow: 1,
-  width: '100%',
-  maxWidth: 600,
-  margin: '0 auto',
+  width: "100%",
+  margin: "0 auto",
   padding: unit * 3,
-  paddingBottom: unit * 5,
+  paddingBottom: unit * 5
 });
