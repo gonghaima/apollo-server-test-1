@@ -27,7 +27,7 @@ export default function Footer() {
         </MenuItem>
         <MenuItem to="/products">
           <ProductIcon />
-          Profile
+          products
         </MenuItem>
         <LogoutButton />
       </InnerContainer>
