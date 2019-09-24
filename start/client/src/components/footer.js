@@ -22,6 +22,10 @@ export default function Footer() {
           Cart
         </MenuItem>
         <MenuItem to="/profile">
+          <ProfileIcon />
+          Profile
+        </MenuItem>
+        <MenuItem to="/products">
           <ProductIcon />
           Profile
         </MenuItem>
