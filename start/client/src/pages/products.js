@@ -41,6 +41,12 @@ const StyledSummaryRight = styled("select")({
   width: "50%"
 });
 
+const SubHeaderWrapper = styled("div")({
+  display: "flex",
+  alignItems: "baseline"
+});
+
+
 export const GET_PRODUCTS = gql`
   query GetProducts {
     products {
@@ -89,21 +95,23 @@ export default function Products() {
   return (
     <Fragment>
       <StyledH1>All Products</StyledH1>
-      <StyledSummaryLeft>
-        {data.products && data.products.length} products
+      <SubHeaderWrapper>
+        <StyledSummaryLeft>
+          {data.products && data.products.length} products
       </StyledSummaryLeft>
-      <StyledSummaryRight
-        onChange={e =>
-          updateNumPerPage({ variables: { newNum: e.target.value } })
-        }
-      >
-        {data.numToDisplay &&
-          data.numToDisplay.map(num => (
-            <option value={num} key={`option${num}`}>
-              {num}perPage
+        <StyledSummaryRight
+          onChange={e =>
+            updateNumPerPage({ variables: { newNum: e.target.value } })
+          }
+        >
+          {data.numToDisplay &&
+            data.numToDisplay.map(num => (
+              <option value={num} key={`option${num}`}>
+                {num}perPage
             </option>
-          ))}
-      </StyledSummaryRight>
+            ))}
+        </StyledSummaryRight>
+      </SubHeaderWrapper>
 
       {data.products &&
         data.products

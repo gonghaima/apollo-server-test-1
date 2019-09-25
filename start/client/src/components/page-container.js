@@ -23,10 +23,7 @@ const Bar = styled("div")({
 });
 
 const Container = styled("div")({
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  flexGrow: 1,
+  display: "block",
   width: "100%",
   margin: "0 auto",
   padding: unit * 3,
