@@ -26,9 +26,19 @@ const StyledParagraph = styled("p")(productClassName, {
   marginTop: padding,
   color: "black",
   textDecoration: "none",
-  ":not(:last-child)": {
-    marginBottom: padding * 2
-  }
+  margin: "32px"
+});
+
+const StyledH1 = styled("p")({
+  width: "100%"
+});
+
+const StyledSummaryLeft = styled("p")({
+  width: "50%"
+});
+
+const StyledSummaryRight = styled("select")({
+  width: "50%"
 });
 
 export const GET_PRODUCTS = gql`
@@ -78,9 +88,11 @@ export default function Products() {
   }
   return (
     <Fragment>
-      <h1>All Products</h1>
-      <p>{data.products && data.products.length} products</p>
-      <select
+      <StyledH1>All Products</StyledH1>
+      <StyledSummaryLeft>
+        {data.products && data.products.length} products
+      </StyledSummaryLeft>
+      <StyledSummaryRight
         onChange={e =>
           updateNumPerPage({ variables: { newNum: e.target.value } })
         }
@@ -91,7 +103,7 @@ export default function Products() {
               {num}perPage
             </option>
           ))}
-      </select>
+      </StyledSummaryRight>
 
       {data.products &&
         data.products

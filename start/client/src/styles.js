@@ -23,9 +23,7 @@ export default () => injectGlobal({
     color: colors.text,
   },
   '#root': {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100%',
+    display: 'block'
   },
   '*': {
     boxSizing: 'border-box',
@@ -48,5 +46,8 @@ export default () => injectGlobal({
     fontSize: 16,
     textTransform: 'uppercase',
     letterSpacing: 4,
+  },
+  ".pagination": {
+    width: "100%"
   }
 });
