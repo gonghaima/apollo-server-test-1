@@ -46,6 +46,11 @@ const SubHeaderWrapper = styled("div")({
   alignItems: "baseline"
 });
 
+const ContentWrapper = styled("div")({
+  display: "flex",
+  flexWrap: "wrap"
+});
+
 
 export const GET_PRODUCTS = gql`
   query GetProducts {
@@ -113,20 +118,21 @@ export default function Products() {
         </StyledSummaryRight>
       </SubHeaderWrapper>
 
-      {data.products &&
-        data.products
-          .slice(...getParams(data.currentPage, data.itemsPerPage))
-          .map((product, index) => (
-            <StyledParagraph
-              key={index}
-              style={{
-                backgroundImage: getBackgroundImage(product)
-              }}
-            >
-              {product.price}
-            </StyledParagraph>
-          ))}
-
+      <ContentWrapper>
+        {data.products &&
+          data.products
+            .slice(...getParams(data.currentPage, data.itemsPerPage))
+            .map((product, index) => (
+              <StyledParagraph
+                key={index}
+                style={{
+                  backgroundImage: getBackgroundImage(product)
+                }}
+              >
+                {product.price}
+              </StyledParagraph>
+            ))}
+      </ContentWrapper>
       <ReactPaginate
         previousLabel={"< Previous page"}
         nextLabel={"Next page >"}
