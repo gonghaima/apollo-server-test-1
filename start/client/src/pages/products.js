@@ -16,6 +16,7 @@ export const productClassName = css({
   padding: `${unit * 4}px ${unit * 5}px`,
   borderRadius: 7,
   color: "white",
+  background: "lightcoral",
   backgroundSize: "cover",
   backgroundPosition: "center"
 });
@@ -29,7 +30,8 @@ const ProductContainer = styled("div")(productClassName, {
 
 const ImgContainer = styled("img")({
   height: "100%",
-  width: "auto"
+  width: "auto",
+  maxWidth: "320px"
 });
 
 
