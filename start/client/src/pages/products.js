@@ -5,9 +5,9 @@ import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
 import { Loading } from "../components";
 
-export function getBackgroundImage(product) {
-  return `url(${product.productImage})`;
-}
+// export function getBackgroundImage(product) {
+//   return `url(${product.productImage})`;
+// }
 
 const unit = 8;
 const padding = unit * 2;
@@ -20,14 +20,18 @@ export const productClassName = css({
   backgroundPosition: "center"
 });
 
-const StyledParagraph = styled("p")(productClassName, {
+const ProductContainer = styled("div")(productClassName, {
   display: "block",
-  height: 193,
   marginTop: padding,
   color: "black",
-  textDecoration: "none",
-  margin: "32px"
+  textDecoration: "none"
 });
+
+const ImgContainer = styled("img")({
+  height: "100%",
+  width: "auto"
+});
+
 
 const StyledH1 = styled("p")({
   width: "100%"
@@ -48,7 +52,8 @@ const SubHeaderWrapper = styled("div")({
 
 const ContentWrapper = styled("div")({
   display: "flex",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
+  justifyContent: "center"
 });
 
 
@@ -123,14 +128,14 @@ export default function Products() {
           data.products
             .slice(...getParams(data.currentPage, data.itemsPerPage))
             .map((product, index) => (
-              <StyledParagraph
+              <ProductContainer
                 key={index}
                 style={{
-                  backgroundImage: getBackgroundImage(product)
                 }}
               >
+                <ImgContainer src={product.productImage} alt="" />
                 {product.price}
-              </StyledParagraph>
+              </ProductContainer>
             ))}
       </ContentWrapper>
       <ReactPaginate
