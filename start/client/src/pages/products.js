@@ -23,7 +23,7 @@ export const productClassName = css({
 
 const ProductContainer = styled("div")(productClassName, {
   display: "block",
-  marginTop: padding,
+  margin: "5px",
   color: "black",
   textDecoration: "none"
 });
