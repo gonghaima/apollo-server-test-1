@@ -21,7 +21,7 @@ export const productClassName = css({
   backgroundPosition: "center"
 });
 
-const ProductContainer = styled("div")(productClassName, {
+const ProductContainer = styled("figure")(productClassName, {
   display: "block",
   margin: "5px",
   color: "black",
@@ -32,6 +32,10 @@ const ImgContainer = styled("img")({
   height: "100%",
   width: "auto",
   maxWidth: "320px"
+});
+
+const ProductContent = styled("div")({
+  textAlign: "left"
 });
 
 
@@ -136,7 +140,10 @@ export default function Products() {
                 }}
               >
                 <ImgContainer src={product.productImage} alt="" />
-                {product.price}
+                <ProductContent>
+                  {product.price}
+                </ProductContent>
+
               </ProductContainer>
             ))}
       </ContentWrapper>
