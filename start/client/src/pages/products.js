@@ -22,14 +22,14 @@ export const productClassName = css({
 
 const ProductContainer = styled("div")(productClassName, {
   display: "block",
-  margin: "5px",
+  margin: "10px 5px 5px 5px",
   color: "black",
   textDecoration: "none"
 });
 
 const Figure = styled("figure")({
   margin: 0,
-  padding: "16px",
+  padding: "1rem 0px 1rem 0px",
   display: "flex",
   justifyContent: "center",
   borderBottom: "1px solid grey"
@@ -37,7 +37,7 @@ const Figure = styled("figure")({
 
 const Img = styled("img")({
   height: "15rem",
-  maxWidth: "100%"
+  width: "15rem"
 });
 
 const ProductContent = styled("div")({
