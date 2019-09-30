@@ -13,7 +13,6 @@ const unit = 8;
 const padding = unit * 2;
 
 export const productClassName = css({
-  padding: `${unit * 4}px ${unit * 5}px`,
   borderRadius: 7,
   color: "white",
   background: "lightcoral",
@@ -21,17 +20,24 @@ export const productClassName = css({
   backgroundPosition: "center"
 });
 
-const ProductContainer = styled("figure")(productClassName, {
+const ProductContainer = styled("div")(productClassName, {
   display: "block",
   margin: "5px",
   color: "black",
   textDecoration: "none"
 });
 
-const ImgContainer = styled("img")({
-  height: "100%",
-  width: "auto",
-  maxWidth: "320px"
+const Figure = styled("figure")({
+  margin: 0,
+  padding: "16px",
+  display: "flex",
+  justifyContent: "center",
+  borderBottom: "1px solid grey"
+});
+
+const Img = styled("img")({
+  height: "15rem",
+  maxWidth: "100%"
 });
 
 const ProductContent = styled("div")({
@@ -57,9 +63,8 @@ const SubHeaderWrapper = styled("div")({
 });
 
 const ContentWrapper = styled("div")({
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "center"
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)"
 });
 
 
@@ -139,7 +144,9 @@ export default function Products() {
                 style={{
                 }}
               >
-                <ImgContainer src={product.productImage} alt="" />
+                <Figure>
+                  <Img src={product.productImage} alt="" />
+                </Figure>
                 <ProductContent>
                   {product.price}
                 </ProductContent>
