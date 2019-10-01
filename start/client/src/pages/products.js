@@ -20,6 +20,11 @@ export const productClassName = css({
   backgroundPosition: "center"
 });
 
+const ProductLayout = styled("div")({
+  padding: "40px"
+});
+
+
 const ProductContainer = styled("div")(productClassName, {
   display: "block",
   margin: "10px 5px 5px 5px",
@@ -41,9 +46,17 @@ const Img = styled("img")({
 });
 
 const ProductContent = styled("div")({
-  textAlign: "left"
+  textAlign: "left",
+  paddingLeft: "2rem"
 });
 
+const ProductName = styled("h4")({
+  paddingTop: "8px"
+});
+
+const ProductPrice = styled("h6")({
+  marginBottom: "13px"
+});
 
 const StyledH1 = styled("p")({
   width: "100%"
@@ -64,7 +77,8 @@ const SubHeaderWrapper = styled("div")({
 
 const ContentWrapper = styled("div")({
   display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)"
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gridGap: "32px"
 });
 
 
@@ -114,7 +128,7 @@ export default function Products() {
     return <p>ERROR</p>;
   }
   return (
-    <Fragment>
+    <ProductLayout>
       <StyledH1>All Products</StyledH1>
       <SubHeaderWrapper>
         <StyledSummaryLeft>
@@ -148,9 +162,10 @@ export default function Products() {
                   <Img src={product.productImage} alt="" />
                 </Figure>
                 <ProductContent>
-                  {product.price}
+                  <ProductName>{product.productName}</ProductName>
+                  <h4>{product.description}</h4>
+                  <ProductPrice>{product.price}</ProductPrice>
                 </ProductContent>
-
               </ProductContainer>
             ))}
       </ContentWrapper>
@@ -172,6 +187,6 @@ export default function Products() {
         subContainerClassName="pages pagination"
         activeClassName="active"
       />
-    </Fragment>
+    </ProductLayout>
   );
 }
