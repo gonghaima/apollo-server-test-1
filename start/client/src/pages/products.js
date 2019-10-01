@@ -15,29 +15,30 @@ const padding = unit * 2;
 export const productClassName = css({
   borderRadius: 7,
   color: "white",
-  border: "1px solid lightgrey",
+  border: "1px solid #e5e5e5",
   backgroundSize: "cover",
   backgroundPosition: "center"
 });
 
 const ProductLayout = styled("div")({
-  padding: "40px"
+  padding: "40px",
+  background: "#f6f6f6"
 });
 
 
 const ProductContainer = styled("div")(productClassName, {
   display: "block",
   color: "black",
-  background: "#fff",
-  textDecoration: "none"
+  textDecoration: "none",
+  background: "#fff"
 });
 
 const Figure = styled("figure")({
   margin: 0,
-  padding: "15px",
+  padding: "16px",
   display: "flex",
   justifyContent: "center",
-  borderBottom: "0.08rem solid #e5e5e5"
+  borderBottom: "1px solid #e5e5e5"
 });
 
 const Img = styled("img")({
@@ -54,15 +55,15 @@ const ProductName = styled("h4")({
   paddingTop: "12px",
   color: "#6a6a6a"
 });
+
 const ProductDescription = styled("h4")({
+  paddingTop: "5px",
   color: "#bfbfbf"
 });
 
-
 const ProductPrice = styled("h6")({
-  marginBottom: "16px",
-  marginTop: "5px",
-  color: "#272727"
+  marginTop: "10px",
+  marginBottom: "22px"
 });
 
 const StyledH1 = styled("p")({
@@ -85,7 +86,7 @@ const SubHeaderWrapper = styled("div")({
 const ContentWrapper = styled("div")({
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
-  gridGap: "20px"
+  gridGap: "16px"
 });
 
 
