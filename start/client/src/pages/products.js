@@ -51,11 +51,18 @@ const ProductContent = styled("div")({
 });
 
 const ProductName = styled("h4")({
-  paddingTop: "12px"
+  paddingTop: "12px",
+  color: "#6a6a6a"
+});
+const ProductDescription = styled("h4")({
+  color: "#bfbfbf"
 });
 
+
 const ProductPrice = styled("h6")({
-  marginBottom: "16px"
+  marginBottom: "16px",
+  marginTop: "5px",
+  color: "#272727"
 });
 
 const StyledH1 = styled("p")({
@@ -163,7 +170,7 @@ export default function Products() {
                 </Figure>
                 <ProductContent>
                   <ProductName>{product.productName}</ProductName>
-                  <h4>{product.description}</h4>
+                  <ProductDescription>{product.description}</ProductDescription>
                   <ProductPrice>{product.price}</ProductPrice>
                 </ProductContent>
               </ProductContainer>
