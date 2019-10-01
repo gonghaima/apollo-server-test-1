@@ -27,22 +27,22 @@ const ProductLayout = styled("div")({
 
 const ProductContainer = styled("div")(productClassName, {
   display: "block",
-  margin: "10px 5px 5px 5px",
   color: "black",
+  background: "#fff",
   textDecoration: "none"
 });
 
 const Figure = styled("figure")({
   margin: 0,
-  padding: "1.5rem 0px 1.5rem 0px",
+  padding: "15px",
   display: "flex",
   justifyContent: "center",
-  borderBottom: "1px solid grey"
+  borderBottom: "0.08rem solid #e5e5e5"
 });
 
 const Img = styled("img")({
   height: "15rem",
-  width: "15rem"
+  width: "auto"
 });
 
 const ProductContent = styled("div")({
@@ -51,11 +51,11 @@ const ProductContent = styled("div")({
 });
 
 const ProductName = styled("h4")({
-  paddingTop: "8px"
+  paddingTop: "12px"
 });
 
 const ProductPrice = styled("h6")({
-  marginBottom: "13px"
+  marginBottom: "16px"
 });
 
 const StyledH1 = styled("p")({
@@ -78,7 +78,7 @@ const SubHeaderWrapper = styled("div")({
 const ContentWrapper = styled("div")({
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
-  gridGap: "32px"
+  gridGap: "20px"
 });
 
 
