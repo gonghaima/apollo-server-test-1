@@ -15,7 +15,7 @@ const padding = unit * 2;
 export const productClassName = css({
   borderRadius: 7,
   color: "white",
-  background: "lightcoral",
+  border: "1px solid lightgrey",
   backgroundSize: "cover",
   backgroundPosition: "center"
 });
@@ -34,7 +34,7 @@ const ProductContainer = styled("div")(productClassName, {
 
 const Figure = styled("figure")({
   margin: 0,
-  padding: "1rem 0px 1rem 0px",
+  padding: "1.5rem 0px 1.5rem 0px",
   display: "flex",
   justifyContent: "center",
   borderBottom: "1px solid grey"
