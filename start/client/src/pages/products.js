@@ -195,7 +195,6 @@ export default function Products() {
           data.products && pageTotal(data.products.length, data.itemsPerPage)
         }
         pageRangeDisplayed={0}
-        forcePage={3}
         onPageChange={e =>
           updateCurrentPage({ variables: { newPageNum: e.selected } })
         }

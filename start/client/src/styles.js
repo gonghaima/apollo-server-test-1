@@ -68,5 +68,13 @@ export default () => injectGlobal({
   ".active a": {
     background: "#fff",
     borderBottom: "3px solid #272727"
+  },
+  ".disabled a": {
+    color: "#bfbfbf",
+    outline: "none"
+  },
+  ".pagination a:hover": {
+    fontSize: 17,
+    fontWeight: 700
   }
 });
