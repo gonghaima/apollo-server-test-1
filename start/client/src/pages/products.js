@@ -52,7 +52,7 @@ const ProductContent = styled("div")({
 });
 
 const ProductName = styled("h4")({
-  paddingTop: "12px",
+  paddingTop: "16px",
   color: "#6a6a6a"
 });
 
