@@ -66,8 +66,9 @@ const ProductPrice = styled("h6")({
   marginBottom: "22px"
 });
 
-const StyledH1 = styled("p")({
-  width: "100%"
+const StyledTitle = styled("p")({
+  width: "100%",
+  margin: "0 0 0 10px"
 });
 
 const StyledSummaryLeft = styled("p")({
@@ -75,12 +76,14 @@ const StyledSummaryLeft = styled("p")({
 });
 
 const StyledSummaryRight = styled("select")({
-  width: "50%"
+  width: "20%"
 });
 
 const SubHeaderWrapper = styled("div")({
   display: "flex",
-  alignItems: "baseline"
+  alignItems: "baseline",
+  margin: "0 10px 0 10px",
+  justifyContent: "space-between"
 });
 
 const ContentWrapper = styled("div")({
@@ -137,7 +140,7 @@ export default function Products() {
   }
   return (
     <ProductLayout>
-      <StyledH1>All Products</StyledH1>
+      <StyledTitle>All Products</StyledTitle>
       <SubHeaderWrapper>
         <StyledSummaryLeft>
           {data.products && data.products.length} products
