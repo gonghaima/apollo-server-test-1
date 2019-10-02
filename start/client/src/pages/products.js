@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -9,8 +9,8 @@ import { Loading } from "../components";
 //   return `url(${product.productImage})`;
 // }
 
-const unit = 8;
-const padding = unit * 2;
+// const unit = 8;
+// const padding = unit * 2;
 
 export const productClassName = css({
   borderRadius: 7,
@@ -92,6 +92,11 @@ const ContentWrapper = styled("div")({
   gridGap: "16px"
 });
 
+const PaginationWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "row-reverse",
+  padding: "10px"
+});
 
 export const GET_PRODUCTS = gql`
   query GetProducts {
@@ -180,7 +185,7 @@ export default function Products() {
               </ProductContainer>
             ))}
       </ContentWrapper>
-      <ReactPaginate
+      <PaginationWrapper><ReactPaginate
         previousLabel={"< Previous page"}
         nextLabel={"Next page >"}
         breakLabel="..."
@@ -189,7 +194,7 @@ export default function Products() {
         pageCount={
           data.products && pageTotal(data.products.length, data.itemsPerPage)
         }
-        pageRangeDisplayed={25}
+        pageRangeDisplayed={1}
         forcePage={3}
         onPageChange={e =>
           updateCurrentPage({ variables: { newPageNum: e.selected } })
@@ -198,6 +203,7 @@ export default function Products() {
         subContainerClassName="pages pagination"
         activeClassName="active"
       />
+      </PaginationWrapper>
     </ProductLayout>
   );
 }

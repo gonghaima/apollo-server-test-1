@@ -48,6 +48,21 @@ export default () => injectGlobal({
     letterSpacing: 4,
   },
   ".pagination": {
-    width: "100%"
+    display: "inline-block",
+    padding: "0 15px 0 15px"
+  },
+  ".pagination li": {
+    display: "inline-block"
+  },
+  ".pagination a": {
+    color: "#272727",
+    cursor: "pointer",
+    position: "relative",
+    float: "left",
+    padding: "6px 12px",
+    marginLeft: "-1px",
+    lineHeight: 1.42857143,
+    textDecoration: "none",
+    outline: "unset"
   }
 });
