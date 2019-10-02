@@ -64,5 +64,9 @@ export default () => injectGlobal({
     lineHeight: 1.42857143,
     textDecoration: "none",
     outline: "unset"
+  },
+  ".active a": {
+    background: "#fff",
+    borderBottom: "3px solid #272727"
   }
 });
