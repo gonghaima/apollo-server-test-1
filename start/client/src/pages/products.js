@@ -78,11 +78,19 @@ const StyledTitle = styled("p")({
 });
 
 const StyledSummaryLeft = styled("p")({
-  width: "50%"
+  width: "50%",
+  color: "#7a7a7a",
+  fontSize: "16px",
 });
 
 const StyledSummaryRight = styled("select")({
-  width: "20%"
+  width: "8%",
+  height: "28px",
+  color: "#7a7a7a",
+  fontSize: "11px",
+  background: "#f6f6f6",
+  border: 0,
+  outline: "none"
 });
 
 const SubHeaderWrapper = styled("div")({
@@ -163,7 +171,7 @@ export default function Products() {
           {data.numToDisplay &&
             data.numToDisplay.map(num => (
               <option value={num} key={`option${num}`}>
-                {num}perPage
+                {num} per page
             </option>
             ))}
         </StyledSummaryRight>
