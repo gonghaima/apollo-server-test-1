@@ -12,6 +12,12 @@ import { Loading } from "../components";
 // const unit = 8;
 // const padding = unit * 2;
 
+const breakpoints = [576, 768, 1024, 1280];
+const mq = breakpoints.map(
+  bp => `@media (min-width: ${bp}px)`
+);
+
+
 export const productClassName = css({
   borderRadius: 7,
   color: "white",
@@ -88,7 +94,6 @@ const SubHeaderWrapper = styled("div")({
 
 const ContentWrapper = styled("div")({
   display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
   gridGap: "16px"
 });
 
@@ -164,7 +169,7 @@ export default function Products() {
         </StyledSummaryRight>
       </SubHeaderWrapper>
 
-      <ContentWrapper>
+      <ContentWrapper className="contentWrapper">
         {data.products &&
           data.products
             .slice(...getParams(data.currentPage, data.itemsPerPage))

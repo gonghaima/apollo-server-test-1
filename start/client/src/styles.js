@@ -76,5 +76,20 @@ export default () => injectGlobal({
   ".pagination a:hover": {
     fontSize: 17,
     fontWeight: 700
+  },
+  "@media(min-width:768px)": {
+    ".contentWrapper": {
+      gridTemplateColumns: "repeat(2, 1fr)"
+    }
+  },
+  "@media(min-width:1024px)": {
+    ".contentWrapper": {
+      gridTemplateColumns: "repeat(3, 1fr)"
+    }
+  },
+  "@media(min-width:1280px)": {
+    ".contentWrapper": {
+      gridTemplateColumns: "repeat(4, 1fr)"
+    }
   }
 });
