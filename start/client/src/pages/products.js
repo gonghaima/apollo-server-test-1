@@ -74,7 +74,10 @@ const ProductPrice = styled("h6")({
 
 const StyledTitle = styled("p")({
   width: "100%",
-  margin: "0 0 0 10px"
+  margin: "0 0 0 10px",
+  color: "#6a6a6a",
+  fontSize: "1.5rem",
+  fontWeight: 700
 });
 
 const StyledSummaryLeft = styled("p")({
