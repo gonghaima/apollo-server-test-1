@@ -68,3 +68,18 @@ query foo {
   }
 }
 ```
+
+```javascript
+mutation CreateNewProduct($price: String!, $productName: String!, $productImage: String!, $description: String!) {
+  createProduct(price:$price, productName:$productName, productImage:$productImage, description:$description)
+}
+
+query parameters
+
+{
+  "price": "$3.48",
+  "productName": "sperm whale",
+  "productImage": "https://grid.gograph.com/hand-drawn-sperm-whale-vector-clip-art-vector_gg107441102.jpg",
+  "description": " Following this tutorial I encountered this problem which was very confusing trying to debug"
+}
+```

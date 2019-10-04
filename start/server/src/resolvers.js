@@ -17,7 +17,7 @@ module.exports = {
         // last item in _all_ results, then there are no more results after this
         hasMore: launches.length
           ? launches[launches.length - 1].cursor !==
-            allLaunches[allLaunches.length - 1].cursor
+          allLaunches[allLaunches.length - 1].cursor
           : false
       };
     },
@@ -44,8 +44,8 @@ module.exports = {
           results.length === launchIds.length
             ? "trips booked successfully"
             : `the following launches couldn't be booked: ${launchIds.filter(
-                id => !results.includes(id)
-              )}`,
+              id => !results.includes(id)
+            )}`,
         launches
       };
     },
@@ -64,7 +64,9 @@ module.exports = {
         message: "trip cancelled",
         launches: [launch]
       };
-    }
+    },
+    createProduct: async (_, { price, productName, productImage, description }, { dataSources }) =>
+      dataSources.productAPI.createProduct(price, productName, productImage, description)
   },
   Mission: {
     // make sure the default size is 'large' in case user doesn't specify
