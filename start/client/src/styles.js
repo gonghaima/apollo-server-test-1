@@ -80,19 +80,37 @@ export default () => injectGlobal({
     fontSize: 17,
     fontWeight: 700
   },
+  ".items-per-page": {
+    width: "25%"
+  },
+  ".product-layout": {
+    padding: 0
+  },
   "@media(min-width:768px)": {
     ".contentWrapper": {
       gridTemplateColumns: "repeat(2, 1fr)"
+    },
+    ".items-per-page": {
+      width: "14%"
+    },
+    ".product-layout": {
+      padding: "40px"
     }
   },
   "@media(min-width:1024px)": {
     ".contentWrapper": {
       gridTemplateColumns: "repeat(3, 1fr)"
+    },
+    ".items-per-page": {
+      width: "10%"
     }
   },
   "@media(min-width:1280px)": {
     ".contentWrapper": {
       gridTemplateColumns: "repeat(4, 1fr)"
+    },
+    ".items-per-page": {
+      width: "8%"
     }
   }
 });

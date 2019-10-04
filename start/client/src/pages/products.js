@@ -27,7 +27,6 @@ export const productClassName = css({
 });
 
 const ProductLayout = styled("div")({
-  padding: "40px",
   background: "#f6f6f6"
 });
 
@@ -87,7 +86,6 @@ const StyledSummaryLeft = styled("p")({
 });
 
 const StyledSummaryRight = styled("select")({
-  width: "8%",
   height: "28px",
   color: "#7a7a7a",
   fontSize: "11px",
@@ -160,13 +158,14 @@ export default function Products() {
     return <p>ERROR</p>;
   }
   return (
-    <ProductLayout>
+    <ProductLayout className="product-layout">
       <StyledTitle>All Products</StyledTitle>
       <SubHeaderWrapper>
         <StyledSummaryLeft>
           {data.products && data.products.length} products
       </StyledSummaryLeft>
         <StyledSummaryRight
+          className="items-per-page"
           onChange={e =>
             updateNumPerPage({ variables: { newNum: e.target.value } })
           }
