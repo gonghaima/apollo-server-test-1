@@ -1,0 +1,31 @@
+{
+  "errors": [
+    {
+      "message": "String cannot represent value: { dataValues: { id: 1002, price: \"$592.08\", productName: \"docker up\", productImage: \"https://pbs.twimg.com/profile_images/1902712803/Just_moby.png\", description: \" If you’re looking for details on the iWatch we’ve got you covered with getting your website ready for apply watch\", updatedAt: {}, createdAt: {} }, _previousDataValues: { price: \"$592.08\", productName: \"docker up\", productImage: \"https://pbs.twimg.com/profile_images/1902712803/Just_moby.png\", description: \" If you’re looking for details on the iWatch we’ve got you covered with getting your website ready for apply watch\", updatedAt: {}, id: 1002, createdAt: {} }, _changed: { price: false, productName: false, productImage: false, description: false, updatedAt: false, id: false, createdAt: false }, _modelOptions: { timestamps: true, validate: {}, freezeTableName: false, underscored: false, underscoredAll: false, paranoid: false, rejectOnEmpty: false, whereCollection: null, schema: null, schemaDelimiter: \"\", defaultScope: {}, scopes: [], indexes: [], name: [Object], omitNull: false, sequelize: [Sequelize], hooks: {}, uniqueKeys: {} }, _options: { isNewRecord: true, _schema: null, _schemaDelimiter: \"\", attributes: undefined, include: undefined, raw: undefined, silent: undefined }, __eagerlyLoadedAssociations: [], isNewRecord: false }",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "createProduct"
+      ],
+      "extensions": {
+        "code": "INTERNAL_SERVER_ERROR",
+        "exception": {
+          "stacktrace": [
+            "TypeError: String cannot represent value: { dataValues: { id: 1002, price: \"$592.08\", productName: \"docker up\", productImage: \"https://pbs.twimg.com/profile_images/1902712803/Just_moby.png\", description: \" If you’re looking for details on the iWatch we’ve got you covered with getting your website ready for apply watch\", updatedAt: {}, createdAt: {} }, _previousDataValues: { price: \"$592.08\", productName: \"docker up\", productImage: \"https://pbs.twimg.com/profile_images/1902712803/Just_moby.png\", description: \" If you’re looking for details on the iWatch we’ve got you covered with getting your website ready for apply watch\", updatedAt: {}, id: 1002, createdAt: {} }, _changed: { price: false, productName: false, productImage: false, description: false, updatedAt: false, id: false, createdAt: false }, _modelOptions: { timestamps: true, validate: {}, freezeTableName: false, underscored: false, underscoredAll: false, paranoid: false, rejectOnEmpty: false, whereCollection: null, schema: null, schemaDelimiter: \"\", defaultScope: {}, scopes: [], indexes: [], name: [Object], omitNull: false, sequelize: [Sequelize], hooks: {}, uniqueKeys: {} }, _options: { isNewRecord: true, _schema: null, _schemaDelimiter: \"\", attributes: undefined, include: undefined, raw: undefined, silent: undefined }, __eagerlyLoadedAssociations: [], isNewRecord: false }",
+            "    at GraphQLScalarType.serializeString [as serialize] (/Users/stevengong/temp/tm/t5/fullstack-tutorial/start/server/node_modules/graphql/type/scalars.js:159:9)",
+            "    at completeLeafValue (/Users/stevengong/temp/tm/t5/fullstack-tutorial/start/server/node_modules/graphql/execution/execute.js:635:37)",
+            "    at completeValue (/Users/stevengong/temp/tm/t5/fullstack-tutorial/start/server/node_modules/graphql/execution/execute.js:579:12)",
+            "    at /Users/stevengong/temp/tm/t5/fullstack-tutorial/start/server/node_modules/graphql/execution/execute.js:492:16"
+          ]
+        }
+      }
+    }
+  ],
+  "data": {
+    "createProduct": null
+  }
+}
