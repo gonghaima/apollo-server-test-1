@@ -65,6 +65,9 @@ export default () => injectGlobal({
     textDecoration: "none",
     outline: "unset"
   },
+  ".pagination .disabled a": {
+    cursor: "none"
+  },
   ".active a": {
     background: "#fff",
     borderBottom: "3px solid #272727"
