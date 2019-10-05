@@ -27,7 +27,7 @@ const typeDefs = gql`
     login(email: String): String # login token
 
     createProduct(price: String!, productName: String!, productImage: String!, description: String!): ProductCreateResponse!
-    updateProduct(id: ID!, price: String!, productName: String!, productImage: String!, description: String!): ProductCreateResponse!
+    updateProduct(id: ID!, price: String!, productName: String!, productImage: String!, description: String!): ProductUpdateResponse!
   }
 
   type TripUpdateResponse {

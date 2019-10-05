@@ -97,15 +97,7 @@ mutation uProduct($id:ID!, $price: String!, $productName: String!, $productImage
   updateProduct(id:$id,price:$price, productName:$productName, productImage:$productImage, description:$description){
     success
     message
-    product {
-      id
-      productName
-      description
-      productImage
-      price
-      updatedAt
-      createdAt
-    }
+    rowAffected
   }
 }
 query parameters
