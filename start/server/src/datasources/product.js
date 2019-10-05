@@ -19,15 +19,17 @@ class ProductAPI extends RESTDataSource {
   }
 
   async createProduct(price, productName, productImage, description) {
-    const data = await this.store.products.create({
+    const result = await this.store.products.create({
       price,
       productName,
       productImage,
       description,
       createAt: new Date(),
       updatedAt: new Date()
-    })
-    return "success";
+    });
+    console.log(JSON.stringify(result));
+
+    return result && result.dataValues || null;
   }
 
   // async findOrProducts({ price, product_name, product_image, description }) {

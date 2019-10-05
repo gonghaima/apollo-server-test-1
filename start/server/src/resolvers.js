@@ -65,8 +65,20 @@ module.exports = {
         launches: [launch]
       };
     },
-    createProduct: async (_, { price, productName, productImage, description }, { dataSources }) =>
-      dataSources.productAPI.createProduct(price, productName, productImage, description)
+    createProduct: async (_, { price, productName, productImage, description }, { dataSources }) => {
+      const result = await dataSources.productAPI.createProduct(price, productName, productImage, description);
+      if (!result)
+        return {
+          success: false,
+          message: "failed to create product"
+        };
+
+      return {
+        success: true,
+        message: "product created",
+        product: result
+      };
+    }
   },
   Mission: {
     // make sure the default size is 'large' in case user doesn't specify

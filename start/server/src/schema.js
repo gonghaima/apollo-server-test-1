@@ -26,13 +26,19 @@ const typeDefs = gql`
 
     login(email: String): String # login token
 
-    createProduct(price: String!, productName: String!, productImage: String!, description: String!): String!
+    createProduct(price: String!, productName: String!, productImage: String!, description: String!): ProductCreateResponse!
   }
 
   type TripUpdateResponse {
     success: Boolean!
     message: String
     launches: [Launch]
+  }
+
+  type ProductCreateResponse {
+    success: Boolean!
+    message: String
+    product: Product
   }
 
   """
@@ -72,6 +78,8 @@ const typeDefs = gql`
     description: String!
     productImage: String!
     price: String!
+    updatedAt: String!
+    createdAt: String!
   }
 
   type Mission {

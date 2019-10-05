@@ -71,15 +71,27 @@ query foo {
 
 ```javascript
 mutation CreateNewProduct($price: String!, $productName: String!, $productImage: String!, $description: String!) {
-  createProduct(price:$price, productName:$productName, productImage:$productImage, description:$description)
+  createProduct(price:$price, productName:$productName, productImage:$productImage, description:$description){
+    success
+    message
+    product {
+      id
+      productName
+      description
+      productImage
+      price
+      updatedAt
+      createdAt
+    }
+  }
 }
 
 query parameters
 
 {
-  "price": "$3.48",
-  "productName": "sperm whale",
-  "productImage": "https://grid.gograph.com/hand-drawn-sperm-whale-vector-clip-art-vector_gg107441102.jpg",
-  "description": " Following this tutorial I encountered this problem which was very confusing trying to debug"
+  "price": "$0.01",
+  "productName": "Android",
+  "productImage": "http://illuminea.com/wp-content/uploads/uploads/2009/02/500px-android-logosvg-300x300.png",
+  "description": "Using media queries in emotion works just like using media queries in regular css except you don’t have to specify a selector inside the block"
 }
 ```
