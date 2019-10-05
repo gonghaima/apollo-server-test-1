@@ -78,6 +78,21 @@ module.exports = {
         message: "product created",
         product: result
       };
+    },
+    updateProduct: async (_, { id, price, productName, productImage, description }, { dataSources }) => {
+      const result = await dataSources.productAPI.updateProduct(id, price, productName, productImage, description);
+      if (!result || result[0] === 0)
+        return {
+          success: false,
+          message: "failed to update product",
+          rowAffected: 0
+        };
+
+      return {
+        success: true,
+        message: "product updated",
+        rowAffected: result[0]
+      };
     }
   },
   Mission: {

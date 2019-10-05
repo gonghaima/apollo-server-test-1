@@ -85,13 +85,35 @@ mutation CreateNewProduct($price: String!, $productName: String!, $productImage:
     }
   }
 }
-
 query parameters
-
 {
   "price": "$0.01",
   "productName": "Android",
   "productImage": "http://illuminea.com/wp-content/uploads/uploads/2009/02/500px-android-logosvg-300x300.png",
   "description": "Using media queries in emotion works just like using media queries in regular css except you don’t have to specify a selector inside the block"
+}
+
+mutation uProduct($id:ID!, $price: String!, $productName: String!, $productImage: String!, $description: String!) {
+  updateProduct(id:$id,price:$price, productName:$productName, productImage:$productImage, description:$description){
+    success
+    message
+    product {
+      id
+      productName
+      description
+      productImage
+      price
+      updatedAt
+      createdAt
+    }
+  }
+}
+query parameters
+{
+  "id":1,
+  "price": "$58.53",
+  "productName": "Repurpose world-class metrics",
+  "productImage": "http://dummyimage.com/345x342.jpg/dddddd/000000",
+  "description": "you don’t have to specify a selector inside the block"
 }
 ```
