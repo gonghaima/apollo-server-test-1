@@ -93,6 +93,21 @@ module.exports = {
         message: "product updated",
         rowAffected: result[0]
       };
+    },
+    deleteProduct: async (_, { id }, { dataSources }) => {
+      const result = await dataSources.productAPI.deleteProduct(id);
+      if (result !== 1)
+        return {
+          success: false,
+          message: "failed to delete product",
+          rowAffected: 0
+        };
+
+      return {
+        success: true,
+        message: "product deleted",
+        rowAffected: result
+      };
     }
   },
   Mission: {

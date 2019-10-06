@@ -108,4 +108,16 @@ query parameters
   "productImage": "http://dummyimage.com/345x342.jpg/dddddd/000000",
   "description": "you don’t have to specify a selector inside the block"
 }
+
+mutation uProduct($id:ID!) {
+  deleteProduct(id:$id){
+    success
+    message
+    rowAffected
+  }
+}
+query parameters
+{
+  "id":1005
+}
 ```

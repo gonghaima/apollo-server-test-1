@@ -50,6 +50,17 @@ class ProductAPI extends RESTDataSource {
     return result || null;
   }
 
+  async deleteProduct(id) {
+    const result = await this.store.products.destroy({
+      where: {
+        id: id
+      }
+    });
+    console.log(JSON.stringify(result));
+
+    return result || null;
+  }
+
   // async findOrProducts({ price, product_name, product_image, description }) {
   //   const products = await this.store.products.findOrCreate({
   //     where: { price, product_name, product_image, description }

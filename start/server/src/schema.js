@@ -28,6 +28,7 @@ const typeDefs = gql`
 
     createProduct(price: String!, productName: String!, productImage: String!, description: String!): ProductCreateResponse!
     updateProduct(id: ID!, price: String!, productName: String!, productImage: String!, description: String!): ProductUpdateResponse!
+    deleteProduct(id: ID!): ProductDeleteResponse!
   }
 
   type TripUpdateResponse {
@@ -43,6 +44,12 @@ const typeDefs = gql`
   }
 
   type ProductUpdateResponse {
+    success: Boolean!
+    message: String
+    rowAffected: Int!
+  }
+
+  type ProductDeleteResponse {
     success: Boolean!
     message: String
     rowAffected: Int!
