@@ -14,6 +14,7 @@ const typeDefs = gql`
     ): LaunchConnection!
     launch(id: ID!): Launch
     products: [Product]
+    product(id: ID!): [Product]
     me: User
   }
 

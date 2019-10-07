@@ -62,8 +62,14 @@ query GetLaunches {
 ```
 
 ```javascript
-query foo {
+query getAllProducts {
   products {
+    productName
+  }
+}
+
+query getProductById {
+  product(id:2) {
     productName
   }
 }

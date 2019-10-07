@@ -25,6 +25,8 @@ module.exports = {
       dataSources.launchAPI.getLaunchById({ launchId: id }),
     products: (_, { id }, { dataSources }) =>
       dataSources.productAPI.getAllProducts(),
+    product: (_, { id }, { dataSources }) =>
+      dataSources.productAPI.getProduct(id),
     me: (_, __, { dataSources }) => dataSources.userAPI.findOrCreateUser()
   },
   Mutation: {

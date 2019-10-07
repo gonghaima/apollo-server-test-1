@@ -18,6 +18,14 @@ class ProductAPI extends RESTDataSource {
     return await this.store.products.findAll();
   }
 
+  async getProduct(id) {
+    return await this.store.products.findAll({
+      where: {
+        id: id
+      }
+    });
+  }
+
   async createProduct(price, productName, productImage, description) {
     const result = await this.store.products.create({
       price,
