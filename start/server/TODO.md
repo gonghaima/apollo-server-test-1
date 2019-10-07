@@ -109,7 +109,7 @@ query parameters
   "description": "you don’t have to specify a selector inside the block"
 }
 
-mutation uProduct($id:ID!) {
+mutation dProduct($id:ID!) {
   deleteProduct(id:$id){
     success
     message
