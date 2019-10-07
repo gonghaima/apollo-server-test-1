@@ -70,7 +70,13 @@ query getAllProducts {
 
 query getProductById {
   product(id:2) {
+    id
     productName
+    description
+    productImage
+    price
+    updatedAt
+    createdAt
   }
 }
 ```

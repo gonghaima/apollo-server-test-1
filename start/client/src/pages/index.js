@@ -6,6 +6,7 @@ import Launches from "./launches";
 import Cart from "./cart";
 import Profile from "./profile";
 import Products from "./products";
+import Product from "./product";
 import { Footer, PageContainer } from "../components";
 
 export default function Pages() {
@@ -18,6 +19,7 @@ export default function Pages() {
           <Cart path="cart" />
           <Profile path="profile" />
           <Products path="products" />
+          <Product path="product/:id" />
         </Router>
       </PageContainer>
       <Footer />
