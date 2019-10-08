@@ -1,6 +1,7 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 import { useQuery, useMutation } from "@apollo/react-hooks";
+import { Link } from "@reach/router";
 import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
 import { Loading } from "../components";
@@ -115,6 +116,7 @@ const PaginationWrapper = styled("div")({
 export const GET_PRODUCTS = gql`
   query GetProducts {
     products {
+      id
       price
       productName
       productImage
@@ -190,7 +192,9 @@ export default function Products() {
                 }}
               >
                 <Figure>
+                  <Link to={`/product/${product.id}`}>
                   <Img src={product.productImage} alt="" />
+                  </Link>
                 </Figure>
                 <ProductContent>
                   <ProductName>{product.productName}</ProductName>
