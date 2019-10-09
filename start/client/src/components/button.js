@@ -1,10 +1,12 @@
 import styled from 'react-emotion';
+import { Link } from "@reach/router";
 import { lighten } from 'polished';
 
 import { unit, colors } from '../styles';
 
 const height = 50;
-export default styled('button')({
+
+const genericClass = {
   display: 'block',
   minWidth: 200,
   height,
@@ -27,4 +29,7 @@ export default styled('button')({
   ':active': {
     backgroundColor: lighten(0.2, colors.accent),
   },
-});
+};
+
+export const ALink = styled(Link)(genericClass, { maxWidth: 200, textDecoration: "none", textAlign: "center" });
+export default styled('button')(genericClass);

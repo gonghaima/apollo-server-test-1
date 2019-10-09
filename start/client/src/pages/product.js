@@ -7,6 +7,7 @@ import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
+import { ALink } from "../components/button";
 
 export const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
@@ -62,6 +63,13 @@ export default function Product({ id }) {
         </h3>
         <h5>{data.product[0].price}</h5>
       </Card>
+      <div>
+        <ALink
+          to={`/products`}
+        >
+          Back
+        </ALink>
+      </div>
     </Fragment>
   );
 }
