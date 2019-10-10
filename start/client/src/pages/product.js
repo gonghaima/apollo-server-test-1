@@ -36,6 +36,11 @@ const Card = styled('div')(cardClassName, {
   marginBottom: unit * 4,
 });
 
+const LinkWrapper = styled('div')({
+  display: "flex",
+  justifyContent:"center"
+});
+
 const backgrounds = [galaxy, iss, moon];
 const getBackgroundImage = () => {
   return `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
@@ -63,13 +68,18 @@ export default function Product({ id }) {
         </h3>
         <h5>{data.product[0].price}</h5>
       </Card>
-      <div>
+      <LinkWrapper>
+        <ALink
+          to={`/product/details/${id}`}
+        >
+          Edit
+        </ALink>
         <ALink
           to={`/products`}
         >
           Back
         </ALink>
-      </div>
+      </LinkWrapper>
     </Fragment>
   );
 }
