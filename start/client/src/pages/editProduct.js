@@ -11,6 +11,7 @@ import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { ALink } from "../components/button";
 import { DisplayFormikState } from '../components/helper';
+import EditProductForm from "../components/edit-product-form"
 
 export const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
@@ -61,84 +62,7 @@ export default function EditProduct({ id }) {
       <Header image={data.product[0].productImage}>
         {data.product[0].productName}
       </Header>
-      <Formik
-        initialValues={{ email: 'steve@ggg.com', productName: data.product[0].productName }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 500);
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string()
-            .email()
-            .required('Required'),
-        })}
-      >
-        {props => {
-          const {
-            values,
-            touched,
-            errors,
-            dirty,
-            isSubmitting,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            handleReset,
-          } = props;
-          debugger
-          return (
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="email" style={{ display: 'block' }}>
-                Email
-            </label>
-              <input
-                id="email"
-                placeholder="Enter your email"
-                type="text"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={
-                  errors.email && touched.email ? 'text-input error' : 'text-input'
-                }
-              />
-              {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
-              )}
-
-              <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-              >
-                Reset
-            </button>
-              <div>
-                <label htmlFor="productName" style={{ display: 'block' }}>
-                  productName
-            </label>
-                <input
-                  id="productName"
-                  placeholder="Enter your productName"
-                  type="text"
-                  value={values.productName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </div>
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-            </button>
-
-              <DisplayFormikState {...props} />
-            </form>
-          );
-        }}
-      </Formik>
-
+      <EditProductForm product={data.product[0]} />
       <Card
         style={{
           backgroundImage: getBackgroundImage(),
