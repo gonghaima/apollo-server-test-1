@@ -38,7 +38,7 @@ const Card = styled('div')(cardClassName, {
 
 const LinkWrapper = styled('div')({
   display: "flex",
-  justifyContent:"center"
+  justifyContent: "center"
 });
 
 const backgrounds = [galaxy, iss, moon];
@@ -70,7 +70,7 @@ export default function Product({ id }) {
       </Card>
       <LinkWrapper>
         <ALink
-          to={`/product/details/${id}`}
+          to={`/product/edit/${id}`}
         >
           Edit
         </ALink>
