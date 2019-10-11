@@ -15,7 +15,7 @@ const UPDATE_PRODUCT = gql`
   }
 `;
 
-export default function EditProductForm({ product: { productName } }) {
+export default function EditProductForm({ product: { id, productName, description, productImage, price } }) {
   // const [mutate, { loading, error }] = useMutation(
   //   UPDATE_PRODUCT,
   //   {
@@ -30,7 +30,9 @@ export default function EditProductForm({ product: { productName } }) {
   // );
   return (
     <Formik
-      initialValues={{ email: 'steve@ggg.com', productName }}
+      initialValues={{
+        email: 'steve@ggg.com', id, productName, description, productImage, price
+      }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -93,6 +95,45 @@ export default function EditProductForm({ product: { productName } }) {
                 placeholder="Enter your productName"
                 type="text"
                 value={values.productName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </div>
+            <div>
+              <label htmlFor="description" style={{ display: 'block' }}>
+                description
+            </label>
+              <input
+                id="description"
+                placeholder="Enter your description"
+                type="text"
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </div>
+            <div>
+              <label htmlFor="productImage" style={{ display: 'block' }}>
+                productImage
+            </label>
+              <input
+                id="productImage"
+                placeholder="Enter your productImage"
+                type="text"
+                value={values.productImage}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </div>
+            <div>
+              <label htmlFor="price" style={{ display: 'block' }}>
+                price
+            </label>
+              <input
+                id="price"
+                placeholder="Enter your price"
+                type="text"
+                value={values.price}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
