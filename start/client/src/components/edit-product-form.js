@@ -77,24 +77,24 @@ export default function EditProductForm({ product: { id, productName, descriptio
 
         return (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email" style={{ display: 'block' }}>
+            {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>
               Email
             </label>
-            <input
-              id="email"
-              placeholder="Enter your email"
-              type="text"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                errors.email && touched.email ? 'text-input error' : 'text-input'
-              }
-            />
-            {errors.email && touched.email && (
-              <div className="input-feedback">{errors.email}</div>
-            )}
-
+              <input
+                id="email"
+                placeholder="Enter your email"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.email && touched.email ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.email && touched.email && (
+                <div className="input-feedback">{errors.email}</div>
+              )}
+            </> : ""}
             <button
               type="button"
               className="outline"
