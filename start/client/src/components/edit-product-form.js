@@ -1,9 +1,23 @@
 import React from "react";
 import gql from "graphql-tag";
+import { useMutation } from "@apollo/react-hooks";
 import { DisplayFormikState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+const GET_PRODUCT_DETAILS = gql`
+  query ProductDetails($id: ID!) {
+    product(id: $id) {
+      id
+      productName
+      description
+      productImage
+      price
+      updatedAt
+      createdAt
+    }
+  }
+`;
 
 const UPDATE_PRODUCT = gql`
   mutation uProduct($id:ID!, $price: String!, $productName: String!, $productImage: String!, $description: String!) {
@@ -16,26 +30,28 @@ const UPDATE_PRODUCT = gql`
 `;
 
 export default function EditProductForm({ product: { id, productName, description, productImage, price } }) {
-  // const [mutate, { loading, error }] = useMutation(
-  //   UPDATE_PRODUCT,
-  //   {
-  //     variables: { launchId: id },
-  //     refetchQueries: [
-  //       {
-  //         query: GET_LAUNCH_DETAILS,
-  //         variables: { launchId: id }
-  //       }
-  //     ]
-  //   }
-  // );
+  const [mutate, { loading, error }] = useMutation(
+    UPDATE_PRODUCT,
+    {
+      variables: { id, productName, description, productImage, price },
+      refetchQueries: [
+        {
+          query: GET_PRODUCT_DETAILS,
+          variables: { id: id }
+        }
+      ]
+    }
+  );
   return (
     <Formik
       initialValues={{
         email: 'steve@ggg.com', id, productName, description, productImage, price
       }}
       onSubmit={(values, { setSubmitting }) => {
+        const { id, productName, description, productImage, price } = values;
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          // alert(JSON.stringify(values, null, 2));
+          mutate({ variables: { id, productName, description, productImage, price } });
           setSubmitting(false);
         }, 500);
       }}
