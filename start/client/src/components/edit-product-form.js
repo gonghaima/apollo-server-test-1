@@ -30,6 +30,7 @@ const UPDATE_PRODUCT = gql`
 `;
 
 export default function EditProductForm({ product: { id, productName, description, productImage, price } }) {
+  let logging = true;
   const [mutate, { loading, error }] = useMutation(
     UPDATE_PRODUCT,
     {
@@ -158,7 +159,7 @@ export default function EditProductForm({ product: { id, productName, descriptio
               Submit
             </button>
 
-            <DisplayFormikState {...props} />
+            {logging ? <DisplayFormikState {...props} /> : ""}
           </form>
         );
       }}
