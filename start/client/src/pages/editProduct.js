@@ -7,6 +7,7 @@ import galaxy from "../assets/images/galaxy.jpg";
 import iss from "../assets/images/iss.jpg";
 import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
+import Card from "../components/card"
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { ALink } from "../components/button";
@@ -26,19 +27,6 @@ export const GET_PRODUCT_DETAILS = gql`
     }
   }
 `;
-
-const cardClassName = css({
-  padding: `${unit * 4}px ${unit * 5}px`,
-  borderRadius: 7,
-  color: "white",
-  backgroundSize: "cover",
-  backgroundPosition: "center"
-});
-
-const Card = styled('div')(cardClassName, {
-  height: 365,
-  marginBottom: unit * 4,
-});
 
 const LinkWrapper = styled('div')({
   display: "flex",
