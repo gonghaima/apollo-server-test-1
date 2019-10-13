@@ -28,11 +28,6 @@ export const GET_PRODUCT_DETAILS = gql`
   }
 `;
 
-const LinkWrapper = styled('div')({
-  display: "flex",
-  justifyContent: "center"
-});
-
 export default function EditProduct({ id }) {
   const { data, loading, error } = useQuery(GET_PRODUCT_DETAILS, {
     variables: { id }
@@ -46,18 +41,6 @@ export default function EditProduct({ id }) {
         {data.product[0].productName}
       </Header>
       <EditProductForm product={data.product[0]} />
-      <LinkWrapper>
-        <ALink
-          to={`/product/details/${id}`}
-        >
-          Edit
-        </ALink>
-        <ALink
-          to={`/products`}
-        >
-          Back
-        </ALink>
-      </LinkWrapper>
     </Fragment>
   );
 }

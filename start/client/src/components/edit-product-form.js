@@ -1,10 +1,21 @@
 import React from "react";
 import gql from "graphql-tag";
 import * as Yup from 'yup';
+import styled, { css } from "react-emotion";
 import { useMutation } from "@apollo/react-hooks";
 import { DisplayFormikState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Card from "./card";
+import { colors, unit } from '../styles';
+import Button from "./button";
+
+const LinkWrapper = styled('div')({
+  display: "flex",
+  justifyContent: "center"
+});
+
+const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
+
 const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
     product(id: $id) {
@@ -77,7 +88,14 @@ export default function EditProductForm({ product: { id, productName, descriptio
 
         return (
           <form onSubmit={handleSubmit}>
-            <Card>
+            <Card style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              flexGrow: 1,
+              paddingBottom: unit * 6,
+              color: 'white'
+            }}>
               {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>
                 Email
             </label>
@@ -96,14 +114,6 @@ export default function EditProductForm({ product: { id, productName, descriptio
                   <div className="input-feedback">{errors.email}</div>
                 )}
               </> : ""}
-              <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-              >
-                Reset
-            </button>
               <div>
                 <label htmlFor="productName" style={{ display: 'block' }}>
                   productName
@@ -156,10 +166,18 @@ export default function EditProductForm({ product: { id, productName, descriptio
                   onBlur={handleBlur}
                 />
               </div>
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-            </button>
             </Card>
+            <LinkWrapper>
+              <Button type="submit" style={buttonStyle}>Save</Button>
+              <Button
+                style={buttonStyle}
+                onClick={handleReset}
+                disabled={!dirty || isSubmitting}
+              >
+                Reset
+            </Button>
+              <Button style={buttonStyle}>Back</Button>
+            </LinkWrapper>
             {logging ? <DisplayFormikState {...props} /> : ""}
           </form>
         );

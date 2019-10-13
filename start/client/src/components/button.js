@@ -29,6 +29,10 @@ const genericClass = {
   ':active': {
     backgroundColor: lighten(0.2, colors.accent),
   },
+  ':disabled': {
+    backgroundColor: lighten(0.2, colors.accent),
+    cursor: 'not-allowed',
+  }
 };
 
 export const ALink = styled(Link)(genericClass, { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', });
