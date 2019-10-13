@@ -7,7 +7,7 @@ import { DisplayFormikState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Card from "./card";
 import { colors, unit } from '../styles';
-import Button from "./button";
+import Button, { ALink } from "./button";
 
 const inputCss = {
   width: '100%',
@@ -189,7 +189,7 @@ export default function EditProductForm({ product: { id, productName, descriptio
               >
                 Reset
             </Button>
-              <Button style={buttonStyle}>Back</Button>
+              <ALink to={`/product/${id}`}>Back</ALink>
             </LinkWrapper>
             {logging ? <DisplayFormikState {...props} /> : ""}
           </form>
