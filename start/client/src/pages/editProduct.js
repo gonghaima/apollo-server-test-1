@@ -33,11 +33,6 @@ const LinkWrapper = styled('div')({
   justifyContent: "center"
 });
 
-const backgrounds = [galaxy, iss, moon];
-const getBackgroundImage = () => {
-  return `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
-}
-
 export default function EditProduct({ id }) {
   const { data, loading, error } = useQuery(GET_PRODUCT_DETAILS, {
     variables: { id }
@@ -51,11 +46,8 @@ export default function EditProduct({ id }) {
         {data.product[0].productName}
       </Header>
       <EditProductForm product={data.product[0]} />
-      <Card
-        style={{
-          backgroundImage: getBackgroundImage(),
-        }}
-      >
+      <Card>
+        <h1></h1>
         <h3>
           {data.product[0].description}
         </h3>
