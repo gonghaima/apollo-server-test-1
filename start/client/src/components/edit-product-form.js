@@ -9,9 +9,31 @@ import Card from "./card";
 import { colors, unit } from '../styles';
 import Button from "./button";
 
+const inputCss = {
+  width: '100%',
+  padding: `${unit * 1.25}px ${unit * 2.5}px`,
+  border: `1px solid ${colors.grey}`,
+  borderRadius: 9,
+  fontSize: 16,
+  outline: 'none',
+  ':focus': {
+    borderColor: colors.primary,
+  },
+};
+const StyledInput = styled('input')(inputCss);
+const StyledTxtArea = styled('textarea')(inputCss);
+
+const TopFieldsContainer = styled('div')({
+  display: 'grid',
+  gridGap: '8px',
+  paddingBottom: unit * 2,
+  color: 'white'
+});
+
 const LinkWrapper = styled('div')({
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
+  marginTop: "40px"
 });
 
 const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
@@ -88,81 +110,72 @@ export default function EditProductForm({ product: { id, productName, descriptio
 
         return (
           <form onSubmit={handleSubmit}>
-            <Card style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              flexGrow: 1,
-              paddingBottom: unit * 6,
-              color: 'white'
-            }}>
-              {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>
-                Email
+            <Card style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <TopFieldsContainer className="contentWrapper">
+                {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>Email</label>
+                  <StyledInput
+                    id="email"
+                    placeholder="Enter your email"
+                    type="text"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.email && touched.email ? 'text-input error' : 'text-input'
+                    }
+                  />
+                  {errors.email && touched.email && (
+                    <div className="input-feedback">{errors.email}</div>
+                  )}
+                </> : null}
+                <div>
+                  <label htmlFor="productName" style={{ display: 'block' }}>
+                    Product Name
             </label>
-                <input
-                  id="email"
-                  placeholder="Enter your email"
-                  type="text"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.email && touched.email ? 'text-input error' : 'text-input'
-                  }
-                />
-                {errors.email && touched.email && (
-                  <div className="input-feedback">{errors.email}</div>
-                )}
-              </> : ""}
+                  <StyledInput
+                    id="productName"
+                    placeholder="Enter your productName"
+                    type="text"
+                    value={values.productName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="productImage" style={{ display: 'block' }}>
+                    Product Image
+            </label>
+                  <StyledInput
+                    id="productImage"
+                    placeholder="Enter your productImage"
+                    type="text"
+                    value={values.productImage}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="price" style={{ display: 'block' }}>
+                    Price
+            </label>
+                  <StyledInput
+                    id="price"
+                    placeholder="Enter your price"
+                    type="text"
+                    value={values.price}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </div>
+              </TopFieldsContainer>
               <div>
-                <label htmlFor="productName" style={{ display: 'block' }}>
-                  productName
-            </label>
-                <input
-                  id="productName"
-                  placeholder="Enter your productName"
-                  type="text"
-                  value={values.productName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </div>
-              <div>
-                <label htmlFor="description" style={{ display: 'block' }}>
-                  description
-            </label>
-                <input
+                <label htmlFor="description" style={{ display: 'block' }}>Description</label>
+                <StyledTxtArea
                   id="description"
                   placeholder="Enter your description"
-                  type="text"
                   value={values.description}
                   onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </div>
-              <div>
-                <label htmlFor="productImage" style={{ display: 'block' }}>
-                  productImage
-            </label>
-                <input
-                  id="productImage"
-                  placeholder="Enter your productImage"
-                  type="text"
-                  value={values.productImage}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </div>
-              <div>
-                <label htmlFor="price" style={{ display: 'block' }}>
-                  price
-            </label>
-                <input
-                  id="price"
-                  placeholder="Enter your price"
-                  type="text"
-                  value={values.price}
-                  onChange={handleChange}
+                  rows={2}
                   onBlur={handleBlur}
                 />
               </div>
