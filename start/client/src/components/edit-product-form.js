@@ -1,10 +1,10 @@
 import React from "react";
 import gql from "graphql-tag";
+import * as Yup from 'yup';
 import { useMutation } from "@apollo/react-hooks";
 import { DisplayFormikState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-
+import Card from "./card";
 const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
     product(id: $id) {
@@ -77,88 +77,89 @@ export default function EditProductForm({ product: { id, productName, descriptio
 
         return (
           <form onSubmit={handleSubmit}>
-            {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>
-              Email
+            <Card>
+              {logging ? <> <label htmlFor="email" style={{ display: 'block' }}>
+                Email
             </label>
-              <input
-                id="email"
-                placeholder="Enter your email"
-                type="text"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={
-                  errors.email && touched.email ? 'text-input error' : 'text-input'
-                }
-              />
-              {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
-              )}
-            </> : ""}
-            <button
-              type="button"
-              className="outline"
-              onClick={handleReset}
-              disabled={!dirty || isSubmitting}
-            >
-              Reset
+                <input
+                  id="email"
+                  placeholder="Enter your email"
+                  type="text"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.email && touched.email ? 'text-input error' : 'text-input'
+                  }
+                />
+                {errors.email && touched.email && (
+                  <div className="input-feedback">{errors.email}</div>
+                )}
+              </> : ""}
+              <button
+                type="button"
+                className="outline"
+                onClick={handleReset}
+                disabled={!dirty || isSubmitting}
+              >
+                Reset
             </button>
-            <div>
-              <label htmlFor="productName" style={{ display: 'block' }}>
-                productName
+              <div>
+                <label htmlFor="productName" style={{ display: 'block' }}>
+                  productName
             </label>
-              <input
-                id="productName"
-                placeholder="Enter your productName"
-                type="text"
-                value={values.productName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </div>
-            <div>
-              <label htmlFor="description" style={{ display: 'block' }}>
-                description
+                <input
+                  id="productName"
+                  placeholder="Enter your productName"
+                  type="text"
+                  value={values.productName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <label htmlFor="description" style={{ display: 'block' }}>
+                  description
             </label>
-              <input
-                id="description"
-                placeholder="Enter your description"
-                type="text"
-                value={values.description}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </div>
-            <div>
-              <label htmlFor="productImage" style={{ display: 'block' }}>
-                productImage
+                <input
+                  id="description"
+                  placeholder="Enter your description"
+                  type="text"
+                  value={values.description}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <label htmlFor="productImage" style={{ display: 'block' }}>
+                  productImage
             </label>
-              <input
-                id="productImage"
-                placeholder="Enter your productImage"
-                type="text"
-                value={values.productImage}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </div>
-            <div>
-              <label htmlFor="price" style={{ display: 'block' }}>
-                price
+                <input
+                  id="productImage"
+                  placeholder="Enter your productImage"
+                  type="text"
+                  value={values.productImage}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <label htmlFor="price" style={{ display: 'block' }}>
+                  price
             </label>
-              <input
-                id="price"
-                placeholder="Enter your price"
-                type="text"
-                value={values.price}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </div>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
+                <input
+                  id="price"
+                  placeholder="Enter your price"
+                  type="text"
+                  value={values.price}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <button type="submit" disabled={isSubmitting}>
+                Submit
             </button>
-
+            </Card>
             {logging ? <DisplayFormikState {...props} /> : ""}
           </form>
         );

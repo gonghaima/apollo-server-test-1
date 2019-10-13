@@ -46,13 +46,6 @@ export default function EditProduct({ id }) {
         {data.product[0].productName}
       </Header>
       <EditProductForm product={data.product[0]} />
-      <Card>
-        <h1></h1>
-        <h3>
-          {data.product[0].description}
-        </h3>
-        <h5>{data.product[0].price}</h5>
-      </Card>
       <LinkWrapper>
         <ALink
           to={`/product/details/${id}`}
