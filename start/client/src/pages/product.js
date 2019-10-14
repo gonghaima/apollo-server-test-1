@@ -61,7 +61,11 @@ export default function Product({ id }) {
         >
           Edit
         </ALink>
-        <Button>
+        <Button onClick={() => {
+          if (window.confirm("Do you really want to delete this item?")) {
+            alert('Great!')
+          }
+        }}>
           Delete
         </Button>
         <ALink
