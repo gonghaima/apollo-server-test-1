@@ -35,5 +35,8 @@ const genericClass = {
   }
 };
 
-export const ALink = styled(Link)(genericClass, { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', });
+const linkClass = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
+
+export const ALink = styled(Link)(genericClass, linkClass);
+export const Button = styled('button')(genericClass, linkClass);
 export default styled('button')(genericClass);

@@ -8,7 +8,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { GET_PRODUCT_DETAILS } from "../gql/queries";
-import { ALink } from "../components/button";
+import { ALink, Button } from "../components/button";
 
 const cardClassName = css({
   padding: `${unit * 4}px ${unit * 5}px`,
@@ -61,6 +61,9 @@ export default function Product({ id }) {
         >
           Edit
         </ALink>
+        <Button>
+          Delete
+        </Button>
         <ALink
           to={`/products`}
         >
