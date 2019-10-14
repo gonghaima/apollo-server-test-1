@@ -81,12 +81,13 @@ export default function EditProductForm({ product: { id, productName, descriptio
       initialValues={{
         email: 'steve@ggg.com', id, productName, description, productImage, price
       }}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         const { id, productName, description, productImage, price } = values;
         setTimeout(() => {
           // alert(JSON.stringify(values, null, 2));
           mutate({ variables: { id, productName, description, productImage, price } });
           setSubmitting(false);
+          resetForm(values);
         }, 500);
       }}
       validationSchema={Yup.object().shape({
