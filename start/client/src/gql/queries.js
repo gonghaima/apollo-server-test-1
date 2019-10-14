@@ -14,4 +14,14 @@ const GET_PRODUCT_DETAILS = gql`
   }
 `;
 
-export { GET_PRODUCT_DETAILS }
+const UPDATE_PRODUCT = gql`
+  mutation uProduct($id:ID!, $price: String!, $productName: String!, $productImage: String!, $description: String!) {
+    updateProduct(id:$id,price:$price, productName:$productName, productImage:$productImage, description:$description){
+      success
+      message
+      rowAffected
+    }
+  }
+`;
+
+export { GET_PRODUCT_DETAILS, UPDATE_PRODUCT }

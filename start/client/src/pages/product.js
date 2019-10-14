@@ -7,21 +7,8 @@ import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
+import { GET_PRODUCT_DETAILS } from "../gql/queries";
 import { ALink } from "../components/button";
-
-export const GET_PRODUCT_DETAILS = gql`
-  query ProductDetails($id: ID!) {
-    product(id: $id) {
-      id
-      productName
-      description
-      productImage
-      price
-      updatedAt
-      createdAt
-    }
-  }
-`;
 
 const cardClassName = css({
   padding: `${unit * 4}px ${unit * 5}px`,

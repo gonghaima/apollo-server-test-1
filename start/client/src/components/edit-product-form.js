@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { DisplayFormikState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Card from "./card";
+import { GET_PRODUCT_DETAILS, UPDATE_PRODUCT } from "../gql/queries";
 import { colors, unit } from '../styles';
 import Button, { ALink } from "./button";
 
@@ -37,30 +38,6 @@ const LinkWrapper = styled('div')({
 });
 
 const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
-
-const GET_PRODUCT_DETAILS = gql`
-  query ProductDetails($id: ID!) {
-    product(id: $id) {
-      id
-      productName
-      description
-      productImage
-      price
-      updatedAt
-      createdAt
-    }
-  }
-`;
-
-const UPDATE_PRODUCT = gql`
-  mutation uProduct($id:ID!, $price: String!, $productName: String!, $productImage: String!, $description: String!) {
-    updateProduct(id:$id,price:$price, productName:$productName, productImage:$productImage, description:$description){
-      success
-      message
-      rowAffected
-    }
-  }
-`;
 
 export default function EditProductForm({ product: { id, productName, description, productImage, price } }) {
   let logging = false;
