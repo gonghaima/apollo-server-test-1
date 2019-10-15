@@ -182,7 +182,7 @@ export default function Products() {
         </StyledSummaryRight>
       </SubHeaderWrapper>
 
-      <DisplayState {...getParams(data.currentPage, data.itemsPerPage)} />
+      {/* <DisplayState {...getParams(data.currentPage, data.itemsPerPage)} /> */}
 
       <ContentWrapper className="contentWrapper">
         {data.products &&
