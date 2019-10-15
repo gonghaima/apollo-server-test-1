@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DisplayFormikState = props =>
+export const DisplayState = props =>
     <div style={{ margin: '1rem 0' }}>
         <h3 style={{ fontFamily: 'monospace' }} />
         <pre

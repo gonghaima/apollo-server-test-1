@@ -11,7 +11,7 @@ import Card from "../components/card"
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { ALink } from "../components/button";
-import { DisplayFormikState } from '../components/helper';
+import { DisplayState } from '../components/helper';
 import EditProductForm from "../components/edit-product-form"
 
 export const GET_PRODUCT_DETAILS = gql`

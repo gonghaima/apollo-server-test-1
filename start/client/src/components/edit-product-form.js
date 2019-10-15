@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from 'yup';
 import styled, { css } from "react-emotion";
 import { useMutation } from "@apollo/react-hooks";
-import { DisplayFormikState } from './helper';
+import { DisplayState } from './helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Card from "./card";
 import { GET_PRODUCT_DETAILS, UPDATE_PRODUCT } from "../gql/queries";
@@ -168,7 +168,7 @@ export default function EditProductForm({ product: { id, productName, descriptio
             </Button>
               <ALink to={`/product/${id}`}>Back</ALink>
             </LinkWrapper>
-            {logging ? <DisplayFormikState {...props} /> : ""}
+            {logging ? <DisplayState {...props} /> : ""}
           </form>
         );
       }}
