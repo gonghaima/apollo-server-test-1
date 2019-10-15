@@ -1,5 +1,32 @@
 import gql from "graphql-tag";
 
+const GET_PRODUCTS = gql`
+  query GetProducts {
+    products {
+      id
+      price
+      productName
+      productImage
+      description
+    }
+    numToDisplay @client
+    currentPage @client
+    itemsPerPage @client
+  }
+`;
+
+const GET_PRODUCTS_Server_Only = gql`
+  query GetProducts {
+    products {
+      id
+      price
+      productName
+      productImage
+      description
+    }
+  }
+`;
+
 const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
     product(id: $id) {
@@ -24,4 +51,6 @@ const UPDATE_PRODUCT = gql`
   }
 `;
 
-export { GET_PRODUCT_DETAILS, UPDATE_PRODUCT }
+
+
+export { GET_PRODUCTS, GET_PRODUCTS_Server_Only, GET_PRODUCT_DETAILS, UPDATE_PRODUCT }

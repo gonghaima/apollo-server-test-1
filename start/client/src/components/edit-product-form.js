@@ -1,5 +1,4 @@
 import React from "react";
-import gql from "graphql-tag";
 import * as Yup from 'yup';
 import styled, { css } from "react-emotion";
 import { useMutation } from "@apollo/react-hooks";

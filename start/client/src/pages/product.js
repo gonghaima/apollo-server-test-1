@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import gql from "graphql-tag";
+import { navigate } from "@reach/router"
+import { useMutation } from "@apollo/react-hooks";
 import styled, { css } from "react-emotion";
 import galaxy from "../assets/images/galaxy.jpg";
 import iss from "../assets/images/iss.jpg";
@@ -7,7 +8,8 @@ import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
-import { GET_PRODUCT_DETAILS } from "../gql/queries";
+import { GET_PRODUCTS_Server_Only, GET_PRODUCT_DETAILS } from "../gql/queries";
+import { DELETE_PRODUCT_DETAILS } from "../gql/mutations";
 import { ALink, Button } from "../components/button";
 
 const cardClassName = css({
@@ -37,6 +39,22 @@ export default function Product({ id }) {
   const { data, loading, error } = useQuery(GET_PRODUCT_DETAILS, {
     variables: { id }
   });
+
+  const [mutate] = useMutation(
+    DELETE_PRODUCT_DETAILS,
+    {
+      variables: { id },
+      onCompleted() {
+        navigate(`/products`)
+      },
+      refetchQueries: [
+        {
+          query: GET_PRODUCTS_Server_Only,
+        }
+      ]
+    }
+  );
+
   if (loading) return <Loading />;
   if (error) return <p>ERROR: {error.message}</p>;
 
@@ -63,7 +81,7 @@ export default function Product({ id }) {
         </ALink>
         <Button onClick={() => {
           if (window.confirm("Do you really want to delete this item?")) {
-            alert('Great!')
+            mutate({ variables: { id } });
           }
         }}>
           Delete
