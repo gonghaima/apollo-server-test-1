@@ -12,6 +12,7 @@ import { Loading, Header } from "../components";
 import { GET_PRODUCTS_Server_Only, GET_PRODUCTS, GET_PRODUCT_DETAILS } from "../gql/queries";
 import { DELETE_PRODUCT_DETAILS } from "../gql/mutations";
 import { ALink, Button } from "../components/button";
+import Removed from "../components/removed"
 
 const SET_CUR_PAGE = gql`
   mutation updateCurrentPage($newPageNum: Int!) {
@@ -65,25 +66,7 @@ export default function Product({ id }) {
 
   if (loading) return <Loading />;
   if (error) return <p>ERROR: {error.message}</p>;
-  if (!data.product || !data.product[0] || !data.product[0].productImage) return <><Card
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: 'black'
-    }}
-  >
-    <h3>
-      Item removed
-    </h3>
-  </Card>
-    <LinkWrapper><ALink
-      to={`/products`}
-    >
-      Back
-        </ALink>
-    </LinkWrapper>
-  </>;
+  if (!data.product || !data.product[0] || !data.product[0].productImage) return <Removed />;
 
   return (
     <Fragment>
