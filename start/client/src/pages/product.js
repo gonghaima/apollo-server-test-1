@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import gql from "graphql-tag";
 import { navigate } from "@reach/router"
 import { useMutation } from "@apollo/react-hooks";
 import styled, { css } from "react-emotion";
@@ -8,9 +9,15 @@ import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
-import { GET_PRODUCTS_Server_Only, GET_PRODUCT_DETAILS } from "../gql/queries";
+import { GET_PRODUCTS_Server_Only, GET_PRODUCTS, GET_PRODUCT_DETAILS } from "../gql/queries";
 import { DELETE_PRODUCT_DETAILS } from "../gql/mutations";
 import { ALink, Button } from "../components/button";
+
+const SET_CUR_PAGE = gql`
+  mutation updateCurrentPage($newPageNum: Int!) {
+    updateCurrentPage(pagenum: $newPageNum) @client
+  }
+`;
 
 const cardClassName = css({
   padding: `${unit * 4}px ${unit * 5}px`,
@@ -43,13 +50,14 @@ export default function Product({ id }) {
   const [mutate] = useMutation(
     DELETE_PRODUCT_DETAILS,
     {
-      variables: { id },
-      onCompleted() {
-        navigate(`/products`)
-      },
+      variables: { id, newPageNum: 1 },
       refetchQueries: [
         {
-          query: GET_PRODUCTS_Server_Only,
+          query: GET_PRODUCTS,
+        },
+        {
+          query: GET_PRODUCT_DETAILS,
+          variables: { id }
         }
       ]
     }
@@ -57,6 +65,11 @@ export default function Product({ id }) {
 
   if (loading) return <Loading />;
   if (error) return <p>ERROR: {error.message}</p>;
+  if (!data.product || !data.product[0] || !data.product[0].productImage) return <><p>Item removed</p><ALink
+    to={`/products`}
+  >
+    Back
+        </ALink></>;
 
   return (
     <Fragment>

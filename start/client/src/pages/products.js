@@ -5,6 +5,7 @@ import { Link } from "@reach/router";
 import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
 import { Loading } from "../components";
+import { DisplayState } from "../components/helper";
 
 // export function getBackgroundImage(product) {
 //   return `url(${product.productImage})`;
@@ -181,6 +182,8 @@ export default function Products() {
         </StyledSummaryRight>
       </SubHeaderWrapper>
 
+      <DisplayState {...getParams(data.currentPage, data.itemsPerPage)} />
+
       <ContentWrapper className="contentWrapper">
         {data.products &&
           data.products
@@ -193,7 +196,7 @@ export default function Products() {
               >
                 <Figure>
                   <Link to={`/product/${product.id}`}>
-                  <Img src={product.productImage} alt="" />
+                    <Img src={product.productImage} alt="" />
                   </Link>
                 </Figure>
                 <ProductContent>
