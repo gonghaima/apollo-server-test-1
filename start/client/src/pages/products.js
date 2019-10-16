@@ -143,9 +143,10 @@ const SET_CUR_PAGE = gql`
   }
 `;
 
-const getParams = (curPage, iPerPage) => {
+const getParams = (curPage, iPerPage, totalCount) => {
   const offset = +iPerPage * +curPage;
   const limit = offset + +iPerPage;
+  if (limit > totalCount) return [totalCount - iPerPage, totalCount];
   return [offset, limit];
 };
 
@@ -187,7 +188,7 @@ export default function Products() {
       <ContentWrapper className="contentWrapper">
         {data.products &&
           data.products
-            .slice(...getParams(data.currentPage, data.itemsPerPage))
+            .slice(...getParams(data.currentPage, data.itemsPerPage, data.products.length))
             .map((product, index) => (
               <ProductContainer
                 key={index}
