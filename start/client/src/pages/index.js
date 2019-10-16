@@ -5,7 +5,7 @@ import Launch from "./launch";
 import Launches from "./launches";
 import Cart from "./cart";
 import Profile from "./profile";
-import Products from "./products";
+import Products from "./products/index";
 import Product from "./product";
 import EditProduct from "./editProduct";
 import { Footer, PageContainer } from "../components";
