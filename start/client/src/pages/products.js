@@ -5,14 +5,9 @@ import { Link } from "@reach/router";
 import gql from "graphql-tag";
 import styled, { css } from "react-emotion";
 import { Loading } from "../components";
+import { GET_PRODUCTS } from "../gql/queries";
+import { SET_CUR_PAGE, SET_NUM_PER_PAGE } from "../gql/mutations";
 import { DisplayState } from "../components/helper";
-
-// export function getBackgroundImage(product) {
-//   return `url(${product.productImage})`;
-// }
-
-// const unit = 8;
-// const padding = unit * 2;
 
 const breakpoints = [576, 768, 1024, 1280];
 const mq = breakpoints.map(
@@ -114,34 +109,8 @@ const PaginationWrapper = styled("div")({
   padding: "10px"
 });
 
-export const GET_PRODUCTS = gql`
-  query GetProducts {
-    products {
-      id
-      price
-      productName
-      productImage
-      description
-    }
-    numToDisplay @client
-    currentPage @client
-    itemsPerPage @client
-  }
-`;
-
 const pageTotal = (total, limit) => Math.ceil(total / limit);
 
-const SET_NUM_PER_PAGE = gql`
-  mutation updateItemsPerPage($newNum: Int!) {
-    updateItemsPerPage(num: $newNum) @client
-  }
-`;
-
-const SET_CUR_PAGE = gql`
-  mutation updateCurrentPage($newPageNum: Int!) {
-    updateCurrentPage(pagenum: $newPageNum) @client
-  }
-`;
 
 const getParams = (curPage, iPerPage, totalCount) => {
   const offset = +iPerPage * +curPage;
