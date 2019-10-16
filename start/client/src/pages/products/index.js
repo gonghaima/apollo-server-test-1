@@ -9,10 +9,11 @@ import { GET_PRODUCTS } from "../../gql/queries";
 import { SET_CUR_PAGE, SET_NUM_PER_PAGE } from "../../gql/mutations";
 import { ProductLayout, ProductContainer, Figure, Img, ProductContent, ProductName, ProductDescription, ProductPrice, StyledTitle, StyledSummaryLeft, StyledSummaryRight, SubHeaderWrapper, ContentWrapper, PaginationWrapper } from "./products.module";
 import { DisplayState } from "../../components/helper";
+import Pagination from "../../components/pagination"
 
 
 
-const pageTotal = (total, limit) => Math.ceil(total / limit);
+
 
 
 const getParams = (curPage, iPerPage, totalCount) => {
@@ -80,24 +81,7 @@ export default function Products() {
               </ProductContainer>
             ))}
       </ContentWrapper>
-      <PaginationWrapper><ReactPaginate
-        previousLabel={"< Previous page"}
-        nextLabel={"Next page >"}
-        breakLabel="..."
-        breakClassName="break-me"
-        marginPagesDisplayed={5}
-        pageCount={
-          data.products && pageTotal(data.products.length, data.itemsPerPage)
-        }
-        pageRangeDisplayed={0}
-        onPageChange={e =>
-          updateCurrentPage({ variables: { newPageNum: e.selected } })
-        }
-        containerClassName="pagination"
-        subContainerClassName="pages pagination"
-        activeClassName="active"
-      />
-      </PaginationWrapper>
+      <Pagination data={data} updateCurrentPage={updateCurrentPage} />
     </ProductLayout>
   );
 }

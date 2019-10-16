@@ -94,10 +94,6 @@ const ContentWrapper = styled("div")({
     gridGap: "16px"
 });
 
-const PaginationWrapper = styled("div")({
-    display: "flex",
-    flexDirection: "row-reverse",
-    padding: "10px"
-});
 
-export { ProductLayout, ProductContainer, Figure, Img, ProductContent, ProductName, ProductDescription, ProductPrice, StyledTitle, StyledSummaryLeft, StyledSummaryRight, SubHeaderWrapper, ContentWrapper, PaginationWrapper }
+
+export { ProductLayout, ProductContainer, Figure, Img, ProductContent, ProductName, ProductDescription, ProductPrice, StyledTitle, StyledSummaryLeft, StyledSummaryRight, SubHeaderWrapper, ContentWrapper }
