@@ -6,4 +6,4 @@
 * [x] current page get updated when pagination item clicked
 * [x] add product details page
 * [x] navigation between product and details page
-* [ ] add edit details page
+* [x] add edit details page
