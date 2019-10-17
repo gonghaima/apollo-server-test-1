@@ -49,7 +49,13 @@ export default function EditProductForm({ product: { id, productName, descriptio
           query: GET_PRODUCT_DETAILS,
           variables: { id: id }
         }
-      ]
+      ],
+      onCompleted: () => {
+        alert('Update Successful!')
+      },
+      onError: () => {
+        alert('There is an issue to update the item, please try later!')
+      }
     }
   );
   return (
