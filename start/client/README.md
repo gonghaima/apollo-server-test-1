@@ -8,3 +8,4 @@
 * [x] navigation between product and details page
 * [x] add edit details page
 * [x] Notification - item saved
+* [ ] Add new item
