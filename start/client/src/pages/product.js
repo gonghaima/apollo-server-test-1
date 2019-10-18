@@ -97,6 +97,11 @@ export default function Product({ id }) {
           Delete
         </Button>
         <ALink
+          to={`/product/create`}
+        >
+          New
+        </ALink>
+        <ALink
           to={`/products`}
         >
           Back
