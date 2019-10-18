@@ -15,7 +15,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const GET_PRODUCTS_Server_Only = gql`
+const GET_PRODUCTS_SERVER_ONLY = gql`
   query GetProducts {
     products {
       id
@@ -51,6 +51,23 @@ const UPDATE_PRODUCT = gql`
   }
 `;
 
+const CREATE_PRODUCT = gql`
+  mutation cProduct($price: String!, $productName: String!, $productImage: String!, $description: String!) {
+    createProduct(price:$price, productName:$productName, productImage:$productImage, description:$description){
+      success
+      message
+      product {
+        id
+        productName
+        description
+        productImage
+        price
+        updatedAt
+        createdAt
+      }
+    }
+  }
+`;
 
 
-export { GET_PRODUCTS, GET_PRODUCTS_Server_Only, GET_PRODUCT_DETAILS, UPDATE_PRODUCT }
+export { GET_PRODUCTS, GET_PRODUCTS_SERVER_ONLY, GET_PRODUCT_DETAILS, UPDATE_PRODUCT, CREATE_PRODUCT }

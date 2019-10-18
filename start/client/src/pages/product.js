@@ -9,7 +9,7 @@ import moon from "../assets/images/moon.jpg";
 import { useQuery } from "@apollo/react-hooks";
 import { unit } from "../styles";
 import { Loading, Header } from "../components";
-import { GET_PRODUCTS_Server_Only, GET_PRODUCTS, GET_PRODUCT_DETAILS } from "../gql/queries";
+import { GET_PRODUCTS_SERVER_ONLY, GET_PRODUCTS, GET_PRODUCT_DETAILS } from "../gql/queries";
 import { DELETE_PRODUCT_DETAILS } from "../gql/mutations";
 import { ALink, Button } from "../components/button";
 import Removed from "../components/removed"

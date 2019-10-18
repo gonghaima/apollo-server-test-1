@@ -8,3 +8,9 @@ const data = [
   }
 ];
 module.exports = data;
+
+
+Embrace the world
+ $90.09
+Their eager embrace of foreign influences
+https://upload.wikimedia.org/wikipedia/commons/6/6b/Icecat1-300x300.svg
