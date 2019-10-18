@@ -9,3 +9,4 @@
 * [x] add edit details page
 * [x] Notification - item saved
 * [ ] Add new item
+* [ ] Validating the form
