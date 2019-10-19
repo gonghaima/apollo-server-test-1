@@ -2,41 +2,13 @@ import React from "react";
 import * as Yup from 'yup';
 import styled, { css } from "react-emotion";
 import { useMutation } from "@apollo/react-hooks";
-import { DisplayState } from './helper';
+import { DisplayState } from '../helper';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Card from "./card";
-import { GET_PRODUCTS_SERVER_ONLY, CREATE_PRODUCT } from "../gql/queries";
-import { colors, unit } from '../styles';
-import Button, { ALink } from "./button";
-
-const inputCss = {
-  width: '100%',
-  padding: `${unit * 1.25}px ${unit * 2.5}px`,
-  border: `1px solid ${colors.grey}`,
-  borderRadius: 9,
-  fontSize: 16,
-  outline: 'none',
-  ':focus': {
-    borderColor: colors.primary,
-  },
-};
-const StyledInput = styled('input')(inputCss);
-const StyledTxtArea = styled('textarea')(inputCss);
-
-const TopFieldsContainer = styled('div')({
-  display: 'grid',
-  gridGap: '8px',
-  paddingBottom: unit * 2,
-  color: 'white'
-});
-
-const LinkWrapper = styled('div')({
-  display: "flex",
-  justifyContent: "center",
-  marginTop: "40px"
-});
-
-const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
+import Card from "../card";
+import { GET_PRODUCTS_SERVER_ONLY, CREATE_PRODUCT } from "../../gql/queries";
+import { colors, unit } from '../../styles';
+import Button, { ALink } from "../button";
+import { StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle } from "./form.module";
 
 export default function CreateProductForm() {
   let productName = '', description = '', productImage = '', price = '';

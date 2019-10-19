@@ -12,7 +12,7 @@ import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { ALink } from "../components/button";
 import { DisplayState } from '../components/helper';
-import CreateProductForm from "../components/create-product-form"
+import CreateProductForm from "../components/form/create-product-form"
 
 
 export default function CreateProduct() {

@@ -12,7 +12,7 @@ import { unit } from "../styles";
 import { Loading, Header } from "../components";
 import { ALink } from "../components/button";
 import { DisplayState } from '../components/helper';
-import EditProductForm from "../components/edit-product-form"
+import EditProductForm from "../components/form/edit-product-form"
 
 export const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($id: ID!) {
