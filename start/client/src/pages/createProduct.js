@@ -16,24 +16,10 @@ import CreateProductForm from "../components/create-product-form"
 
 
 export default function CreateProduct() {
-  const data = {
-    product: [
-      {
-        id: 1,
-        price: "",
-        product_name: "",
-        description: "",
-        product_image: ""
-      }
-    ]
-  };
-
   return (
     <Fragment>
-      <Header image={data.product[0].productImage}>
-        {data.product[0].productName}
-      </Header>
-      <CreateProductForm product={data.product[0]} />
+      <Header />
+      <CreateProductForm />
     </Fragment>
   );
 }

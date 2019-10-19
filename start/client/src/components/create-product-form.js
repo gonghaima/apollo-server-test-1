@@ -38,7 +38,8 @@ const LinkWrapper = styled('div')({
 
 const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
 
-export default function CreateProductForm({ product: { productName, description, productImage, price } }) {
+export default function CreateProductForm() {
+  let productName = '', description = '', productImage = '', price = '';
   let logging = false;
   const [mutate, { loading, error }] = useMutation(
     CREATE_PRODUCT,
