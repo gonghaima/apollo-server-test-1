@@ -47,6 +47,9 @@ export default function CreateProductForm() {
         email: Yup.string()
           .email()
           .required('Required'),
+        productImage: Yup.string()
+          .url()
+          .required('Required')
       })}
     >
       {props => {
@@ -96,9 +99,10 @@ export default function CreateProductForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="productImage" style={{ display: 'block' }}>
-                    Product Image
-            </label>
+                  <label htmlFor="productImage" style={{ display: 'block' }}>Product Image</label>
+                  {errors.productImage && touched.productImage && (
+                    <div className="input-feedback">{errors.productImage}</div>
+                  )}
                   <StyledInput
                     id="productImage"
                     placeholder="Enter your productImage"
