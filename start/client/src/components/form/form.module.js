@@ -28,7 +28,17 @@ const LinkWrapper = styled('div')({
     marginTop: "40px"
 });
 
+const LabelContainer = styled('div')({
+    display: 'flex',
+    justifyContent: 'space-between'
+});
+
+const ValidationTxt = styled('div')({
+    color: "red",
+    display: "flex"
+});
+
 const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
 
 
-export { inputCss, StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle }
+export { inputCss, StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle, LabelContainer, ValidationTxt }

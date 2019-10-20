@@ -8,7 +8,7 @@ import Card from "../card";
 import { GET_PRODUCTS_SERVER_ONLY, CREATE_PRODUCT } from "../../gql/queries";
 import { colors, unit } from '../../styles';
 import Button, { ALink } from "../button";
-import { StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle } from "./form.module";
+import { StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle, LabelContainer, ValidationTxt } from "./form.module";
 
 export default function CreateProductForm() {
   let productName = '', description = '', productImage = '', price = '';
@@ -99,10 +99,12 @@ export default function CreateProductForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="productImage" style={{ display: 'block' }}>Product Image</label>
-                  {errors.productImage && touched.productImage && (
-                    <div className="input-feedback">{errors.productImage}</div>
-                  )}
+                  <LabelContainer>
+                    <label htmlFor="productImage" style={{ display: 'block' }}>Product Image</label>
+                    {errors.productImage && touched.productImage && (
+                      <ValidationTxt>* {errors.productImage}</ValidationTxt>
+                    )}
+                  </LabelContainer>
                   <StyledInput
                     id="productImage"
                     placeholder="Enter your productImage"
