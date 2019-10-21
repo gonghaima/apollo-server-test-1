@@ -6,5 +6,7 @@ export const vRule = Yup.object().shape({
         .required('Required'),
     productImage: Yup.string()
         .url()
+        .required('Required'),
+    productName: Yup.string()
         .required('Required')
 })

@@ -80,9 +80,12 @@ export default function CreateProductForm() {
                   )}
                 </> : null}
                 <div>
-                  <label htmlFor="productName" style={{ display: 'block' }}>
-                    Product Name
-            </label>
+                  <LabelContainer>
+                    <label htmlFor="productName" style={{ display: 'block' }}>Product Name</label>
+                    {errors.productName && touched.productName && (
+                      <ValidationTxt>* {errors.productName}</ValidationTxt>
+                    )}
+                  </LabelContainer>
                   <StyledInput
                     id="productName"
                     placeholder="Enter your productName"
