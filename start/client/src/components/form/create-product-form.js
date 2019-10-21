@@ -9,6 +9,7 @@ import { GET_PRODUCTS_SERVER_ONLY, CREATE_PRODUCT } from "../../gql/queries";
 import { colors, unit } from '../../styles';
 import Button, { ALink } from "../button";
 import { StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle, LabelContainer, ValidationTxt } from "./form.module";
+import { vRule } from "./validation";
 
 export default function CreateProductForm() {
   let productName = '', description = '', productImage = '', price = '';
@@ -43,14 +44,7 @@ export default function CreateProductForm() {
           resetForm(values);
         }, 500);
       }}
-      validationSchema={Yup.object().shape({
-        email: Yup.string()
-          .email()
-          .required('Required'),
-        productImage: Yup.string()
-          .url()
-          .required('Required')
-      })}
+      validationSchema={vRule}
     >
       {props => {
         const {
