@@ -88,14 +88,14 @@ export default () => injectGlobal({
   },
   "@media(max-width:767px)": {
     ".form-button": {
-      margin: 0,
+      margin: 5,
       minWidth: 100,
     }
   },
   "@media(min-width:768px)": {
     ".form-button": {
-      margin: "0 15px",
-      minWidth: 160,
+      margin: 10,
+      minWidth: "160px",
     },
     ".contentWrapper": {
       gridTemplateColumns: "repeat(2, 1fr)"

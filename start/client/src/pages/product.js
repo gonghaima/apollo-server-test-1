@@ -85,11 +85,12 @@ export default function Product({ id }) {
       </Card>
       <LinkWrapper>
         <ALink
+          className="form-button"
           to={`/product/edit/${id}`}
         >
           Edit
         </ALink>
-        <Button onClick={() => {
+        <Button className="form-button" onClick={() => {
           if (window.confirm("Do you really want to delete this item?")) {
             mutate({ variables: { id } });
           }
@@ -97,11 +98,13 @@ export default function Product({ id }) {
           Delete
         </Button>
         <ALink
+          className="form-button"
           to={`/product/create`}
         >
           New
         </ALink>
         <ALink
+          className="form-button"
           to={`/products`}
         >
           Back

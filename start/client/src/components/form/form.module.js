@@ -38,7 +38,7 @@ const ValidationTxt = styled('div')({
     display: "flex"
 });
 
-const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
+const buttonStyle = { maxWidth: 200, textDecoration: "none", textAlign: "center" };
 
 
 export { inputCss, StyledInput, StyledTxtArea, TopFieldsContainer, LinkWrapper, buttonStyle, LabelContainer, ValidationTxt }

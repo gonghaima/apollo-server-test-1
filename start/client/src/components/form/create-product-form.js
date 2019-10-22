@@ -138,15 +138,16 @@ export default function CreateProductForm() {
               </div>
             </Card>
             <LinkWrapper>
-              <Button type="submit" style={buttonStyle}>Save</Button>
+              <Button className="form-button" type="submit" style={buttonStyle}>Save</Button>
               <Button
+                className="form-button"
                 style={buttonStyle}
                 onClick={handleReset}
                 disabled={!dirty || isSubmitting}
               >
                 Reset
             </Button>
-              <ALink to={`/products`}>Back</ALink>
+              <ALink className="form-button" to={`/products`}>Back</ALink>
             </LinkWrapper>
             {logging ? <DisplayState {...props} /> : ""}
           </form>
