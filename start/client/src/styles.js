@@ -86,7 +86,17 @@ export default () => injectGlobal({
   ".product-layout": {
     padding: 0
   },
+  "@media(max-width:767px)": {
+    ".form-button": {
+      margin: 0,
+      minWidth: 100,
+    }
+  },
   "@media(min-width:768px)": {
+    ".form-button": {
+      margin: "0 15px",
+      minWidth: 160,
+    },
     ".contentWrapper": {
       gridTemplateColumns: "repeat(2, 1fr)"
     },

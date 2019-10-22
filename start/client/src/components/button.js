@@ -8,9 +8,7 @@ const height = 50;
 
 const genericClass = {
   display: 'block',
-  minWidth: 200,
   height,
-  margin: '0 auto',
   padding: `0 ${unit * 4}px`,
   border: 'none',
   borderRadius: height / 2,
@@ -35,7 +33,7 @@ const genericClass = {
   }
 };
 
-const linkClass = { maxWidth: 200, textDecoration: "none", textAlign: "center", margin: '0 15px', };
+const linkClass = { maxWidth: 200, textDecoration: "none", textAlign: "center" };
 
 export const ALink = styled(Link)(genericClass, linkClass);
 export const Button = styled('button')(genericClass, linkClass);

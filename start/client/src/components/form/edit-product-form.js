@@ -139,15 +139,16 @@ export default function EditProductForm({ product: { id, productName, descriptio
               </div>
             </Card>
             <LinkWrapper>
-              <Button type="submit" style={buttonStyle}>Save</Button>
+              <Button className="form-button" type="submit" style={buttonStyle}>Save</Button>
               <Button
+                className="form-button"
                 style={buttonStyle}
                 onClick={handleReset}
                 disabled={!dirty || isSubmitting}
               >
                 Reset
             </Button>
-              <ALink to={`/product/${id}`}>Back</ALink>
+              <ALink className="form-button" to={`/product/${id}`}>Back</ALink>
             </LinkWrapper>
             {logging ? <DisplayState {...props} /> : ""}
           </form>
