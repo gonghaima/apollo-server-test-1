@@ -10,5 +10,7 @@ export const vRule = Yup.object().shape({
     productName: Yup.string()
         .required('Required'),
     price: Yup.string()
+        .required('Required'),
+    description: Yup.string()
         .required('Required')
 })
