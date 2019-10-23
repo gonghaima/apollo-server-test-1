@@ -113,9 +113,12 @@ export default function EditProductForm({ product: { id, productName, descriptio
                   />
                 </div>
                 <div>
-                  <label htmlFor="price" style={{ display: 'block' }}>
-                    Price
-            </label>
+                  <LabelContainer>
+                    <label htmlFor="price" style={{ display: 'block' }}>Price</label>
+                    {errors.price && touched.price && (
+                      <ValidationTxt>* {errors.price}</ValidationTxt>
+                    )}
+                  </LabelContainer>
                   <StyledInput
                     id="price"
                     placeholder="Enter your price"
