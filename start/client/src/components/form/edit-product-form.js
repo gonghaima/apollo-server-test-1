@@ -130,7 +130,12 @@ export default function EditProductForm({ product: { id, productName, descriptio
                 </div>
               </TopFieldsContainer>
               <div>
-                <label htmlFor="description" style={{ display: 'block' }}>Description</label>
+                <LabelContainer>
+                  <label htmlFor="description" style={{ display: 'block' }}>description</label>
+                  {errors.description && touched.description && (
+                    <ValidationTxt>* {errors.description}</ValidationTxt>
+                  )}
+                </LabelContainer>
                 <StyledTxtArea
                   id="description"
                   placeholder="Enter your description"
