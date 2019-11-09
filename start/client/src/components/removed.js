@@ -22,7 +22,7 @@ const Card = styled('div')(cardClassName, {
   marginBottom: unit * 4,
 });
 
-export default function Removed() {
+export default function Removed({ msg }) {
   return (
     <><Card
       style={{
@@ -33,8 +33,8 @@ export default function Removed() {
       }}
     >
       <h3>
-        Item Removed
-    </h3>
+        {msg}
+      </h3>
     </Card>
       <LinkWrapper><ALink
         to={`/products`}

@@ -66,7 +66,8 @@ export default function Product({ id }) {
 
   if (loading) return <Loading />;
   if (error) return <p>ERROR: {error.message}</p>;
-  if (!data.product || !data.product[0] || !data.product[0].productImage) return <Removed />;
+  if (!data.product || !data.product[0]) return <Removed msg='No product data available' />;
+  if (!data.product[0].productImage) return <Removed msg='product image is not available' />;
 
   return (
     <Fragment>
